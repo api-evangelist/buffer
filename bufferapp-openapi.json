@@ -1,0 +1,1678 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1",
+        "title": "Bufferapp",
+        "description": "Social media management for marketers and agencies",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "httpsapi.bufferapp.com\/1\/",
+        "http:\/\/api.bufferapp.com\/1\/"
+    ],
+    "paths": {
+        "\/info\/configuration{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/links\/shares{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "URL-encoded URL of the page for which the number of shares is requested."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/schedules\/update{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "\"Set the posting schedules for the specified social media profile.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/schedules{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns details of the posting schedules associated with a social media profile.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/updates\/pending{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    },
+                    {
+                        "name": "since",
+                        "in": "query",
+                        "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+                    },
+                    {
+                        "name": "utc",
+                        "in": "query",
+                        "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/updates\/reorder{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/updates\/sent{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    },
+                    {
+                        "name": "since",
+                        "in": "query",
+                        "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+                    },
+                    {
+                        "name": "utc",
+                        "in": "query",
+                        "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}\/updates\/shuffle{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/profiles\/{id}{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns details of the single specified social media profile.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns an array of social media profiles connected to a users account.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/create{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Create one or more new status updates.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}\/destroy{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Permanently delete an existing status update.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}\/interactions{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Specifies a type of event to be retrieved, for example \"retweet\", \"like\", \"comment\", \"mention\" or \"reshare\". They can also be plural (e.g., \"reshares\"). Plurality has no effect other than visual semantics. See \/info\/configuration for more information on supported interaction events.\n"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}\/move_to_top{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}\/share{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}\/update{mediaTypeExtension}": {
+            "post": {
+                "summary": "",
+                "description": "Edit an existing, individual status update.\n",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/updates\/{id}{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a single social media update.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user{mediaTypeExtension}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a single user.",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mediaTypeExtension",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "summary": "",
+                "description": "",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/info\/configuration.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
+                "operationId": "InfoConfigurationJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/links\/shares.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
+                "operationId": "LinksSharesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "URL-encoded URL of the page for which the number of shares is requested."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/schedules\/update.json": {
+            "post": {
+                "summary": "",
+                "description": "\"Set the posting schedules for the specified social media profile.\n",
+                "operationId": "ProfilesIdSchedulesUpdateJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/schedules.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns details of the posting schedules associated with a social media profile.",
+                "operationId": "ProfilesIdSchedulesJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/updates\/pending.json": {
+            "get": {
+                "summary": "",
+                "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
+                "operationId": "ProfilesIdUpdatesPendingJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    },
+                    {
+                        "name": "since",
+                        "in": "query",
+                        "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+                    },
+                    {
+                        "name": "utc",
+                        "in": "query",
+                        "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/updates\/reorder.json": {
+            "post": {
+                "summary": "",
+                "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+                "operationId": "ProfilesIdUpdatesReorderJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/updates\/sent.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
+                "operationId": "ProfilesIdUpdatesSentJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    },
+                    {
+                        "name": "since",
+                        "in": "query",
+                        "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+                    },
+                    {
+                        "name": "utc",
+                        "in": "query",
+                        "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}\/updates\/shuffle.json": {
+            "post": {
+                "summary": "",
+                "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+                "operationId": "ProfilesIdUpdatesShuffleJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles\/{id}.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns details of the single specified social media profile.",
+                "operationId": "ProfilesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/profiles.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns an array of social media profiles connected to a users account.",
+                "operationId": "ProfilesJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/create.json": {
+            "post": {
+                "summary": "",
+                "description": "Create one or more new status updates.\n",
+                "operationId": "UpdatesCreateJsonPost",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}\/destroy.json": {
+            "post": {
+                "summary": "",
+                "description": "Permanently delete an existing status update.",
+                "operationId": "UpdatesIdDestroyJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}\/interactions.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
+                "operationId": "UpdatesIdInteractionsJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "event",
+                        "in": "query",
+                        "description": "Specifies a type of event to be retrieved, for example \"retweet\", \"like\", \"comment\", \"mention\" or \"reshare\". They can also be plural (e.g., \"reshares\"). Plurality has no effect other than visual semantics. See \/info\/configuration for more information on supported interaction events.\n"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}\/move_to_top.json": {
+            "post": {
+                "summary": "",
+                "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
+                "operationId": "UpdatesIdMoveToTopJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}\/share.json": {
+            "post": {
+                "summary": "",
+                "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
+                "operationId": "UpdatesIdShareJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}\/update.json": {
+            "post": {
+                "summary": "",
+                "description": "Edit an existing, individual status update.\n",
+                "operationId": "UpdatesIdUpdateJsonPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/updates\/{id}.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns a single social media update.",
+                "operationId": "UpdatesIdJsonGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/user.json": {
+            "get": {
+                "summary": "",
+                "description": "Returns a single user.",
+                "operationId": "UserJsonGet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/configuration"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "configuration": {
+                "type": "object",
+                "properties": {
+                    "media": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "services": {
+                        "description": "",
+                        "type": "object"
+                    }
+                }
+            },
+            "media": {
+                "type": "object"
+            },
+            "services": {
+                "type": "object"
+            },
+            "individual-update": {
+                "type": "object",
+                "properties": {
+                    "buffer_count": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "buffer_percentage": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "update": {
+                        "description": "",
+                        "type": "object"
+                    }
+                }
+            },
+            "update": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "day": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "due_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "due_time": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "profile_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "profile_service": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sent_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "service_update_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "statistics": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "text_formatted": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "via": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "interactions": {
+                "type": "array",
+                "properties": {
+                    "interactions": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "total": {
+                        "description": "",
+                        "type": "number"
+                    }
+                }
+            },
+            "newUpdate": {
+                "type": "object",
+                "properties": {
+                    "buffer_count": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "buffer_percentage": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "updates": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "updates": {
+                "type": "array"
+            },
+            "profile": {
+                "type": "object",
+                "properties": {
+                    "avatar": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "default": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "formatted_username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "schedules": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "service": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "service_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "service_username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "statistics": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "team_members": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "timezone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "schedules": {
+                "type": "object",
+                "properties": {
+                    "days": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "times": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "statistics": {
+                "type": "object"
+            },
+            "team_members": {
+                "type": "array"
+            },
+            "profiles": {
+                "type": "object",
+                "properties": {
+                    "avatar": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "default": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "formatted_username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "schedules": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "service": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "service_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "service_username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "statistics": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "team_members": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "timezone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "reorder": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "updates": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "days": {
+                "type": "array"
+            },
+            "times": {
+                "type": "array"
+            },
+            "schedules-update": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "share": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "shares": {
+                "type": "object",
+                "properties": {
+                    "shares": {
+                        "description": "",
+                        "type": "number"
+                    }
+                }
+            },
+            "shuffle": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "updates": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "success": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "description": "",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "updates-array": {
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "updates": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "user": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "activity_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "plan": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "referral_link": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "referral_token": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "secret_email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "model410": {
+                "type": "object"
+            },
+            "model353": {
+                "type": "object"
+            },
+            "model723": {
+                "type": "object"
+            },
+            "model564": {
+                "type": "object"
+            },
+            "model913": {
+                "type": "object"
+            }
+        }
+    }
+}
