@@ -1,0 +1,1740 @@
+{
+    "id": "bc9668b242178e26f4344c98b2853dd9",
+    "name": "Bufferapp",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "3ec9384c3d4bfc49f7b89ab2bd4ffe5f",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration{mediaTypeExtension}",
+            "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "a822302b78f6005fee0e3470f6a52895",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "aec33001634cece143338fe6a0ddf670",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares{mediaTypeExtension}",
+            "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "url",
+                    "description": "URL-encoded URL of the page for which the number of shares is requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "9522fafbffb617804f3dde8a7b41f0f5",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "5817e7ad0b49e8066e29f849d7bd9ee6",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update{mediaTypeExtension}",
+            "description": "\"Set the posting schedules for the specified social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "2e3d060c475126a510c7b01443356914",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "4c0bbce8ccd3fa22ab8cafd5c985ab24",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules{mediaTypeExtension}",
+            "description": "Returns details of the posting schedules associated with a social media profile.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "5e00393c8fef2a18a05df1c05c9e1304",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "65c957b87a752e788ba031d2e4e89684",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending{mediaTypeExtension}",
+            "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "since",
+                    "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "utc",
+                    "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "58b88bc3335796f6a93dab8f7a59b07e",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "6f226fdd84c4950cbcc95757fd8ed165",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder{mediaTypeExtension}",
+            "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "14943a005d21146392975cb6d98f0cd9",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "c45ba12a2d68d320c82f9941db39ba2b",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent{mediaTypeExtension}",
+            "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "since",
+                    "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "utc",
+                    "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "e7606ee3d9e525044bd7f60ed7d689ca",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "9a8ede612f7e399f2f02be66b8e28285",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle{mediaTypeExtension}",
+            "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "fae38fcb9253f39267134de2053c65fa",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "0d25f9278303f2c6bc37e3b87939f819",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}{mediaTypeExtension}",
+            "description": "Returns details of the single specified social media profile.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "f753d70af07c986fa10d246d53294528",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles{mediaTypeExtension}",
+            "description": "Returns an array of social media profiles connected to a users account.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "44c8da6c7f6b6ac4ec558fcc661f1e02",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "7ca1aa8080513a2661206888e5375516",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create{mediaTypeExtension}",
+            "description": "Create one or more new status updates.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "9a75c49e5d1f9c64689438a7fbff8fb4",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "cc30990d9aa93afbf32fcaecb03d8e51",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy{mediaTypeExtension}",
+            "description": "Permanently delete an existing status update.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "788bfca2b22a5d4f6ea0eba4ee40d750",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "2598d5cda3375a1bcdbf65086d8e72de",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions{mediaTypeExtension}",
+            "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "event",
+                    "description": "Specifies a type of event to be retrieved, for example \"retweet\", \"like\", \"comment\", \"mention\" or \"reshare\". They can also be plural (e.g., \"reshares\"). Plurality has no effect other than visual semantics. See \/info\/configuration for more information on supported interaction events.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "1c7315aa101e8782ec830c4ced7cf276",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "efacd6d6efbdf3c6cabcb2e5d67bbdb6",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top{mediaTypeExtension}",
+            "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "75e1624a7ef639c7523d6ba5669207fa",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "50e26ba970003645a37b25ba45aaf561",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share{mediaTypeExtension}",
+            "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "81e1643d8ba8e43986978db7a3b604f9",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "736a77ba7ff29aef6cef00870a06d7e1",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update{mediaTypeExtension}",
+            "description": "Edit an existing, individual status update.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "410328902c78daa9412aa7934b3b0fb0",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "736312de4c79229a34c634d81d238b2a",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}{mediaTypeExtension}",
+            "description": "Returns a single social media update.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "2cba594b0d40b054d022a185d62f42c4",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "dce8f173321c579960e081d50191e2f2",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/user{mediaTypeExtension}",
+            "description": "Returns a single user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mediaTypeExtension",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "268a295507a9a42b46502e7d5926857c",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/user{mediaTypeExtension}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "0cce5b36339489937ec81dc30a2ff073",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration.json",
+            "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "5efa229bc02b811109658c2e0a491d35",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares.json",
+            "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "url",
+                    "description": "URL-encoded URL of the page for which the number of shares is requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "76175c1fa658dfe84ae3cb065cab2cf4",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update.json",
+            "description": "\"Set the posting schedules for the specified social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "305003871f4524f65964f921dfec0a0e",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules.json",
+            "description": "Returns details of the posting schedules associated with a social media profile.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "f9a50223db7cc8b5a713b172d35c5467",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending.json",
+            "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "since",
+                    "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "utc",
+                    "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "92e096fa0d55909955ed4a06442b2a1a",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder.json",
+            "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "a8264db508fe6f8a43f5546cd4c1e6d6",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent.json",
+            "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "since",
+                    "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "utc",
+                    "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "c76258ef91341622b9fa8a74fed53f38",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle.json",
+            "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "284557a2efe67f53442d68ce9a83ce9e",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}.json",
+            "description": "Returns details of the single specified social media profile.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "507a8a55b9b94b7cfd24cc32834a1770",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/profiles.json",
+            "description": "Returns an array of social media profiles connected to a users account.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "eb35481d7ab07db811aab8fcbaff8da0",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create.json",
+            "description": "Create one or more new status updates.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "e758f67f68bcd1acab9024cc43acd452",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy.json",
+            "description": "Permanently delete an existing status update.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "12826f88a607a5eb42668c5daf9a1967",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions.json",
+            "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "event",
+                    "description": "Specifies a type of event to be retrieved, for example \"retweet\", \"like\", \"comment\", \"mention\" or \"reshare\". They can also be plural (e.g., \"reshares\"). Plurality has no effect other than visual semantics. See \/info\/configuration for more information on supported interaction events.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "page",
+                    "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "count",
+                    "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "001b42e16ecb79532af7aaa3bc4adb2c",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top.json",
+            "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "9f2a487384e1cecab924537ea736db7a",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share.json",
+            "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "1c5295455c0173e4257647fd10b46ac8",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update.json",
+            "description": "Edit an existing, individual status update.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "fc2644be23f1ef4b3ad0bf1baf6509c6",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}.json",
+            "description": "Returns a single social media update.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        },
+        {
+            "id": "5ef150fba96c9cafd6407896858b06a2",
+            "name": "",
+            "url": "http:\/\/api.bufferapp.com\/1\/\/user.json",
+            "description": "Returns a single user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "rawModeData": ""
+        }
+    ]
+}
