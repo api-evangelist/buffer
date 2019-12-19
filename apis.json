@@ -1,0 +1,151 @@
+{
+    "name": "Buffer",
+    "description": "Buffer is an intuitive social media management platform trusted by brands, businesses, agencies, and individuals to help drive social media results.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/994-buffer.jpg",
+    "tags": [
+        "api provider",
+        "api service provider",
+        "have api",
+        "have swagger",
+        "relative data",
+        "schedules",
+        "service api",
+        "social",
+        "social sharing"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/buffer\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Bufferapp",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/994-buffer.jpg",
+            "humanURL": "http:\/\/bufferapp.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/bufferapp.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/bufferapp-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "https:\/\/api.bufferapp.com\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.bufferapp.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.bufferapp.com\/feed\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/joelg"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/buffer"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/buffer"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/bufferapp.com\/developers"
+        },
+        {
+            "type": "Email",
+            "url": "hello@bufferapp.com"
+        },
+        {
+            "type": "Email",
+            "url": "hello@buffer.com"
+        },
+        {
+            "type": "Email",
+            "url": "copyright@buffer.com"
+        },
+        {
+            "type": "Email",
+            "url": "api@bufferapp.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/bufferapp"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-40-48.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-04-10-41-41.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-41-22.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-42-19.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-42-44.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-43-21.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-43-32.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-43-50.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-45-05.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-03-08-45-09.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-02-21-09-34.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/994-2019-09-02-19-27-58.json"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/buffer.com\/pricing"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/buffer"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/bufferapp.com"
+        }
+    ]
+}
