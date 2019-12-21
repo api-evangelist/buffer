@@ -1,5 +1,5 @@
 {
-    "id": "bc9668b242178e26f4344c98b2853dd9",
+    "id": "a55b6b22cabeab08a4ad9c1d0bf75db6",
     "name": "Bufferapp",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "3ec9384c3d4bfc49f7b89ab2bd4ffe5f",
+            "id": "3fcf999a2effaffc007f8e025811df63",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration{mediaTypeExtension}",
             "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
@@ -37,11 +37,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "a822302b78f6005fee0e3470f6a52895",
+            "id": "7cf2fd6a338c7b303b379793abb968e3",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration{mediaTypeExtension}",
             "description": "",
@@ -60,11 +60,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "aec33001634cece143338fe6a0ddf670",
+            "id": "0a4a61dc37c6aef60130da2715259d39",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares{mediaTypeExtension}",
             "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
@@ -98,11 +98,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "9522fafbffb617804f3dde8a7b41f0f5",
+            "id": "16e8828a6aa7fa28f9d42b773610ba3c",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares{mediaTypeExtension}",
             "description": "",
@@ -121,11 +121,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "5817e7ad0b49e8066e29f849d7bd9ee6",
+            "id": "df872f14b11e5f78882b259f23b29322",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update{mediaTypeExtension}",
             "description": "\"Set the posting schedules for the specified social media profile.\n",
@@ -159,11 +159,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "2e3d060c475126a510c7b01443356914",
+            "id": "25075f3fbe1899d1ee63857b37bf4a5a",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update{mediaTypeExtension}",
             "description": "",
@@ -182,11 +182,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "4c0bbce8ccd3fa22ab8cafd5c985ab24",
+            "id": "c25aefcf3b59298d82a2bea625ee1b82",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules{mediaTypeExtension}",
             "description": "Returns details of the posting schedules associated with a social media profile.",
@@ -220,11 +220,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "5e00393c8fef2a18a05df1c05c9e1304",
+            "id": "e329144b2c63c89d9ef78b9d20d2890f",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules{mediaTypeExtension}",
             "description": "",
@@ -243,11 +243,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "65c957b87a752e788ba031d2e4e89684",
+            "id": "8e27ab2165dd19102e9b74f22a0e9137",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending{mediaTypeExtension}",
             "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
@@ -309,11 +309,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "58b88bc3335796f6a93dab8f7a59b07e",
+            "id": "340395c693a1826d4464da45872fe794",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending{mediaTypeExtension}",
             "description": "",
@@ -332,11 +332,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "6f226fdd84c4950cbcc95757fd8ed165",
+            "id": "e97b5e5495bc483ac75f90f2c59a11f5",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder{mediaTypeExtension}",
             "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
@@ -370,11 +370,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "14943a005d21146392975cb6d98f0cd9",
+            "id": "24548748aad27e97f1ac99bcb1d5d44c",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder{mediaTypeExtension}",
             "description": "",
@@ -393,11 +393,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "c45ba12a2d68d320c82f9941db39ba2b",
+            "id": "44a5f8773080e8b63c7078bcbb5b7a71",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent{mediaTypeExtension}",
             "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
@@ -459,11 +459,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "e7606ee3d9e525044bd7f60ed7d689ca",
+            "id": "903493d1c598e5dc32efe1be87564e78",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent{mediaTypeExtension}",
             "description": "",
@@ -482,11 +482,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "9a8ede612f7e399f2f02be66b8e28285",
+            "id": "a0a148d6b078e72bd64727b7729d8652",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle{mediaTypeExtension}",
             "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
@@ -520,11 +520,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "fae38fcb9253f39267134de2053c65fa",
+            "id": "30588d0e920c64c6d0d9b658fb75a1e7",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle{mediaTypeExtension}",
             "description": "",
@@ -543,11 +543,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "0d25f9278303f2c6bc37e3b87939f819",
+            "id": "2ecfce7294a2c4b97b7a4994caa2b85a",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}{mediaTypeExtension}",
             "description": "Returns details of the single specified social media profile.",
@@ -581,11 +581,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "f753d70af07c986fa10d246d53294528",
+            "id": "066ae11d3619e9290f11596643c167ae",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles{mediaTypeExtension}",
             "description": "Returns an array of social media profiles connected to a users account.",
@@ -612,11 +612,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "44c8da6c7f6b6ac4ec558fcc661f1e02",
+            "id": "e13bfde73f3bc608eba38fe5738846b3",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles{mediaTypeExtension}",
             "description": "",
@@ -635,11 +635,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "7ca1aa8080513a2661206888e5375516",
+            "id": "60187b08375e78b8e8908df9d3d934fa",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create{mediaTypeExtension}",
             "description": "Create one or more new status updates.\n",
@@ -666,11 +666,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "9a75c49e5d1f9c64689438a7fbff8fb4",
+            "id": "29671982b7145bfe50c9ee48c69a6d2b",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create{mediaTypeExtension}",
             "description": "",
@@ -689,11 +689,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "cc30990d9aa93afbf32fcaecb03d8e51",
+            "id": "275a33aad4a78a1404bb64079f016c58",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy{mediaTypeExtension}",
             "description": "Permanently delete an existing status update.",
@@ -727,11 +727,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "788bfca2b22a5d4f6ea0eba4ee40d750",
+            "id": "f24afb0008cda0a8d640b701cabb17ff",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy{mediaTypeExtension}",
             "description": "",
@@ -750,11 +750,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "2598d5cda3375a1bcdbf65086d8e72de",
+            "id": "9353a3b3fe10794e4c9dc9a6558c76af",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions{mediaTypeExtension}",
             "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
@@ -809,11 +809,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "1c7315aa101e8782ec830c4ced7cf276",
+            "id": "009bfe478b5c393131d20b30ea877c67",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions{mediaTypeExtension}",
             "description": "",
@@ -832,11 +832,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "efacd6d6efbdf3c6cabcb2e5d67bbdb6",
+            "id": "a2459ef2e79d318a1ef93021985f6dc5",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top{mediaTypeExtension}",
             "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
@@ -870,11 +870,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "75e1624a7ef639c7523d6ba5669207fa",
+            "id": "fa00059b8ab3e5b0e20bbaa3d19606b5",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top{mediaTypeExtension}",
             "description": "",
@@ -893,11 +893,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "50e26ba970003645a37b25ba45aaf561",
+            "id": "6918a00141c39c373cd2ff8d283d5965",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share{mediaTypeExtension}",
             "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
@@ -931,11 +931,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "81e1643d8ba8e43986978db7a3b604f9",
+            "id": "089dba39302b0a61368cd2dad7c07715",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share{mediaTypeExtension}",
             "description": "",
@@ -954,11 +954,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "736a77ba7ff29aef6cef00870a06d7e1",
+            "id": "f69d56e5eef6e74fb30fff6769342b3f",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update{mediaTypeExtension}",
             "description": "Edit an existing, individual status update.\n",
@@ -992,11 +992,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "410328902c78daa9412aa7934b3b0fb0",
+            "id": "e27ce555dbcecd170e2aef29a4ddd4cd",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update{mediaTypeExtension}",
             "description": "",
@@ -1015,11 +1015,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "736312de4c79229a34c634d81d238b2a",
+            "id": "edf5edd0878315e7a6185e7cc59d95d5",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}{mediaTypeExtension}",
             "description": "Returns a single social media update.",
@@ -1053,11 +1053,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "2cba594b0d40b054d022a185d62f42c4",
+            "id": "1e2bcb92c7ada1f4a4ca21456078eb8e",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}{mediaTypeExtension}",
             "description": "",
@@ -1076,11 +1076,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "dce8f173321c579960e081d50191e2f2",
+            "id": "f12d325ed4dc69e8763609f29365c644",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/user{mediaTypeExtension}",
             "description": "Returns a single user.",
@@ -1107,11 +1107,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "268a295507a9a42b46502e7d5926857c",
+            "id": "5f72fa0e55f494519cab1923bd41408c",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/user{mediaTypeExtension}",
             "description": "",
@@ -1130,11 +1130,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "0cce5b36339489937ec81dc30a2ff073",
+            "id": "8e734bde99b9da4287a69fe1b90440b0",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/info\/configuration.json",
             "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
@@ -1153,11 +1153,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "5efa229bc02b811109658c2e0a491d35",
+            "id": "e884fb467d633d6b0d7d30fd93aebe87",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/links\/shares.json",
             "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
@@ -1184,11 +1184,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "76175c1fa658dfe84ae3cb065cab2cf4",
+            "id": "ce6086ffdeb7e7813cd9535afbf8df60",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules\/update.json",
             "description": "\"Set the posting schedules for the specified social media profile.\n",
@@ -1215,11 +1215,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "305003871f4524f65964f921dfec0a0e",
+            "id": "794db4030f1f061ec3900d4660513da8",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/schedules.json",
             "description": "Returns details of the posting schedules associated with a social media profile.",
@@ -1246,11 +1246,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "f9a50223db7cc8b5a713b172d35c5467",
+            "id": "556e7ace5cad9033e0f65145abb82e20",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/pending.json",
             "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
@@ -1305,11 +1305,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "92e096fa0d55909955ed4a06442b2a1a",
+            "id": "ae48d9edaab7cb39c0c275970e40f9c7",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/reorder.json",
             "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
@@ -1336,11 +1336,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "a8264db508fe6f8a43f5546cd4c1e6d6",
+            "id": "28c6143fefd087626653b5f80c87dfcd",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/sent.json",
             "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
@@ -1395,11 +1395,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "c76258ef91341622b9fa8a74fed53f38",
+            "id": "5f90531f8a051f87d7d656526f388a5c",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}\/updates\/shuffle.json",
             "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
@@ -1426,11 +1426,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "284557a2efe67f53442d68ce9a83ce9e",
+            "id": "d0852649b95b27c905f5bd9e7bc1efa3",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles\/{id}.json",
             "description": "Returns details of the single specified social media profile.",
@@ -1457,11 +1457,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "507a8a55b9b94b7cfd24cc32834a1770",
+            "id": "024fe8ee7a393ea1fa1e48c747da539a",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/profiles.json",
             "description": "Returns an array of social media profiles connected to a users account.",
@@ -1480,11 +1480,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "eb35481d7ab07db811aab8fcbaff8da0",
+            "id": "02517db3b7e82ef04ce6a3c5f3384141",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/create.json",
             "description": "Create one or more new status updates.\n",
@@ -1503,11 +1503,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "e758f67f68bcd1acab9024cc43acd452",
+            "id": "0b5cf57a39d45a45739aacb7b95384c6",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/destroy.json",
             "description": "Permanently delete an existing status update.",
@@ -1534,11 +1534,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "12826f88a607a5eb42668c5daf9a1967",
+            "id": "7bd613c660a054963646787d80371b6e",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/interactions.json",
             "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
@@ -1586,11 +1586,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "001b42e16ecb79532af7aaa3bc4adb2c",
+            "id": "5f24de380a6f545704115b0182f81ae3",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/move_to_top.json",
             "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
@@ -1617,11 +1617,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "9f2a487384e1cecab924537ea736db7a",
+            "id": "d903ccd005b091e2f38ec1199ae6eb60",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/share.json",
             "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
@@ -1648,11 +1648,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "1c5295455c0173e4257647fd10b46ac8",
+            "id": "afc8c3f425e2a876316794ba913849c2",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}\/update.json",
             "description": "Edit an existing, individual status update.\n",
@@ -1679,11 +1679,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "fc2644be23f1ef4b3ad0bf1baf6509c6",
+            "id": "0fff08155720d8e70f183c8f767be439",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/updates\/{id}.json",
             "description": "Returns a single social media update.",
@@ -1710,11 +1710,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         },
         {
-            "id": "5ef150fba96c9cafd6407896858b06a2",
+            "id": "42b8dee259de59dfe36e037064ebe737",
             "name": "",
             "url": "http:\/\/api.bufferapp.com\/1\/\/user.json",
             "description": "Returns a single user.",
@@ -1733,7 +1733,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "bc9668b242178e26f4344c98b2853dd9",
+            "collectionId": "a55b6b22cabeab08a4ad9c1d0bf75db6",
             "rawModeData": ""
         }
     ]
