@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://buffer.com",
+  "name": "Buffer",
+  "description": "Buffer is a social media scheduling and analytics platform with a GraphQL API for scheduling posts, managing content queues, accessing engagement metrics, and publishing across multiple social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business Profiles.",
+  "url": "https://buffer.com",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://github.com/bufferapp",
+    "https://www.linkedin.com/company/bufferapp",
+    "https://x.com/buffer"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "developer support",
+    "url": "https://developers.buffer.com/"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Buffer Plans",
+    "url": "https://buffer.com/pricing"
+  },
+  "subjectOf": [
+    {
+      "@type": "WebSite",
+      "name": "Buffer Developer Documentation",
+      "url": "https://developers.buffer.com/"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Buffer Resources Blog",
+      "url": "https://buffer.com/resources/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Buffer API Status",
+      "url": "https://status.buffer.com/"
+    }
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Buffer GraphQL API",
+    "description": "GraphQL API for scheduling and publishing posts, managing social media channels, handling content ideas, and accessing post metrics across 11 major social media platforms.",
+    "url": "https://developers.buffer.com/",
+    "category": "API",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "API Type",
+        "value": "GraphQL"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "API Endpoint",
+        "value": "https://api.buffer.com"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Authentication",
+        "value": "Bearer Token"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Supported Platforms",
+        "value": "Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, Google Business Profiles"
+      }
+    ]
+  }
+}
