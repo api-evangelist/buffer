@@ -1,0 +1,61 @@
+name: Buffer FinOps
+description: Financial operations and cost optimization guidance for Buffer API usage
+url: https://buffer.com/pricing
+costModel:
+  type: per-channel-per-month
+  description: Buffer pricing scales linearly by the number of connected social media channels
+  currency: USD
+  noSeparateAPITier: true
+  noMeteredOverages: true
+  noUsageBasedCharges: true
+plans:
+  - name: Free
+    monthlyTotal: 0
+    perChannel: 0
+    channels: 3
+    apiRequestsPerMonth: 3000
+    costPerRequest: 0
+    breakEvenRequests: N/A
+  - name: Essentials
+    monthlyPerChannel:
+      monthly: 6
+      annual: 5
+    annualSavings: "~17% (2 months free)"
+    apiRequestsPerMonth: 7500
+    typicalMonthlyFor5Channels:
+      monthly: 30
+      annual: 25
+  - name: Team
+    monthlyPerChannel:
+      monthly: 12
+      annual: 10
+    annualSavings: "~17% (2 months free)"
+    apiRequestsPerMonth: 15000
+    typicalMonthlyFor5Channels:
+      monthly: 60
+      annual: 50
+discounts:
+  - type: annual
+    description: Pay annually and save approximately 17% (equivalent to 2 free months)
+    percentage: 17
+  - type: nonprofit
+    description: 50% discount for qualifying nonprofit organizations
+    percentage: 50
+    applicationRequired: true
+optimization:
+  - strategy: Annual billing
+    description: Switch to annual billing to save ~17% on all paid plans
+  - strategy: Channel consolidation
+    description: Since cost is per channel, audit and remove unused/inactive social channels to reduce monthly spend
+  - strategy: Shared API key pools
+    description: Multiple personal API keys share one rate limit pool; consolidate keys where possible to avoid confusion
+  - strategy: Free tier evaluation
+    description: The Free plan includes 3,000 monthly API requests and 3 channels — sufficient for small-scale integrations
+  - strategy: Request batching
+    description: GraphQL allows complex queries in a single request; batch operations to maximize request quota efficiency
+  - strategy: Rolling window awareness
+    description: Rate limit windows are rolling, not fixed; stagger requests to avoid hitting 15-minute per-client caps
+notes:
+  - Buffer does not charge overage fees — requests are rejected once rate limits are hit
+  - No separate API plan or additional cost for API access beyond the base subscription
+  - Pricing is transparent and publicly documented at buffer.com/pricing

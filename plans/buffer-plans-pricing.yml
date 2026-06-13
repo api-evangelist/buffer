@@ -1,0 +1,65 @@
+name: Buffer Plans and Pricing
+description: Pricing plans and API access tiers for Buffer social media scheduling platform
+url: https://buffer.com/pricing
+plans:
+  - name: Free
+    description: Free plan for individuals getting started with social media scheduling
+    price:
+      amount: 0
+      currency: USD
+      period: month
+    channels: 3
+    scheduledPosts: 10 per channel
+    users: 1
+    apiKeys: 1
+    apiRequestsPerMonth: 3000
+    ideas: 100
+    aiAssistant: true
+    communityInbox: true
+    analytics: Basic only
+    hashtahManager: false
+    approvalWorkflows: false
+  - name: Essentials
+    description: For individuals who want unlimited scheduling and advanced analytics
+    price:
+      amount: 6
+      currency: USD
+      period: month
+      billingNote: Per channel per month; $5/channel/month billed annually
+    channels: Unlimited
+    scheduledPosts: Unlimited
+    users: 1
+    apiKeys: 5
+    apiRequestsPerMonth: 7500
+    ideas: Unlimited
+    aiAssistant: true
+    communityInbox: true
+    analytics: Advanced
+    hashtagManager: true
+    approvalWorkflows: false
+    trial: 14-day free trial
+  - name: Team
+    description: For teams that need collaboration, approval workflows, and unlimited members
+    price:
+      amount: 12
+      currency: USD
+      period: month
+      billingNote: Per channel per month; $10/channel/month billed annually
+    channels: Unlimited
+    scheduledPosts: Unlimited
+    users: Unlimited
+    apiKeys: 5
+    apiRequestsPerMonth: 15000
+    ideas: Unlimited
+    aiAssistant: true
+    communityInbox: true
+    analytics: Advanced
+    hashtagManager: true
+    approvalWorkflows: true
+    trial: 14-day free trial
+notes:
+  - 20% discount on all paid plans with annual billing
+  - 50% nonprofit discount available
+  - Pricing scales linearly per connected social channel
+  - No separate API tier — API access included on all plans
+  - No metered pricing or overage charges beyond rate limits

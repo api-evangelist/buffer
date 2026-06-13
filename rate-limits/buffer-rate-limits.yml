@@ -1,0 +1,54 @@
+name: Buffer API Rate Limits
+description: Rate limits for the Buffer GraphQL API, enforced per client and per account with rolling windows
+url: https://support.buffer.com/article/859-does-buffer-have-an-api
+api: GraphQL API
+windows:
+  - type: per-client
+    description: Rate limit per API key/OAuth client (rolling window)
+    limits:
+      - plan: All Plans
+        window: 15 minutes
+        requests: 100
+        notes: Hard ceiling regardless of plan; approximately 6.7 requests per minute
+  - type: per-account-daily
+    description: Rate limit per Buffer account across all clients (rolling 24-hour window)
+    limits:
+      - plan: Free
+        window: 24 hours
+        requests: 100
+      - plan: Essentials
+        window: 24 hours
+        requests: 250
+      - plan: Team
+        window: 24 hours
+        requests: 500
+  - type: per-account-monthly
+    description: Monthly request quota per Buffer account (rolling 30-day window)
+    limits:
+      - plan: Free
+        window: 30 days
+        requests: 3000
+        apiKeys: 1
+      - plan: Essentials
+        window: 30 days
+        requests: 7500
+        apiKeys: 5
+      - plan: Team
+        window: 30 days
+        requests: 15000
+        apiKeys: 5
+graphqlLimits:
+  - type: query-complexity
+    description: Maximum GraphQL query complexity score per request
+    limit: 175000
+    unit: points
+  - type: query-depth
+    description: Maximum depth of nested fields in a single GraphQL query
+    limit: 25
+    unit: levels
+notes:
+  - All rate limit windows are rolling (not fixed to clock boundaries)
+  - Multiple personal API keys share one usage pool per account
+  - OAuth app clients have independent rate limit pools
+  - Rate limits are tied to the plan of the organization where the API client was created
+  - High-volume use cases can contact the Buffer developer team for custom arrangements
