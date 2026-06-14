@@ -1,57 +1,65 @@
 aid: buffer
 name: Buffer
-description: Buffer is a social media scheduling and analytics platform with a GraphQL API for scheduling posts, managing content queues, accessing engagement metrics, and publishing across multiple social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business Profiles.
+description: Buffer is a social media scheduling and analytics platform with a GraphQL
+  API for scheduling posts, managing content queues, accessing engagement metrics,
+  and publishing across multiple social channels including Instagram, LinkedIn, X,
+  TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business
+  Profiles.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.19'
 tags:
+- Social Media
+- Scheduling
+- Analytics
+- Publishing
+- Content Management
+apis:
+- aid: buffer:buffer-api
+  name: Buffer API
+  description: GraphQL API for scheduling and publishing posts, managing social media
+    channels, handling content ideas, and accessing post metrics across 11 major social
+    media platforms.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.buffer.com/
+  baseURL: https://api.buffer.com/
+  tags:
   - Social Media
   - Scheduling
-  - Analytics
+  - GraphQL
   - Publishing
-  - Content Management
-apis:
-  - aid: buffer:buffer-api
-    name: Buffer API
-    description: GraphQL API for scheduling and publishing posts, managing social media channels, handling content ideas, and accessing post metrics across 11 major social media platforms.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://developers.buffer.com/
-    baseURL: https://api.buffer.com/
-    tags:
-      - Social Media
-      - Scheduling
-      - GraphQL
-      - Publishing
-    properties:
-      - type: Documentation
-        url: https://developers.buffer.com/
-      - type: Authentication
-        url: https://support.buffer.com/article/859-does-buffer-have-an-api
-common:
-  - type: Website
-    url: https://buffer.com
+  properties:
   - type: Documentation
     url: https://developers.buffer.com/
-  - type: GitHubOrg
-    url: https://github.com/bufferapp
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/bufferapp
-  - type: Blog
-    url: https://buffer.com/resources/
-  - type: Pricing
-    url: https://buffer.com/pricing
-  - type: StatusPage
-    url: https://status.buffer.com/
-  - type: X
-    url: https://x.com/buffer
-  - type: Plans
-    url: plans/buffer-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/buffer-rate-limits.yml
-  - type: FinOps
-    url: finops/buffer-finops.yml
+  - type: Authentication
+    url: https://support.buffer.com/article/859-does-buffer-have-an-api
+  - url: graphql/buffer-graphql.md
+    type: GraphQL
+common:
+- type: Website
+  url: https://buffer.com
+- type: Documentation
+  url: https://developers.buffer.com/
+- type: GitHubOrg
+  url: https://github.com/bufferapp
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bufferapp
+- type: Blog
+  url: https://buffer.com/resources/
+- type: Pricing
+  url: https://buffer.com/pricing
+- type: StatusPage
+  url: https://status.buffer.com/
+- type: X
+  url: https://x.com/buffer
+- type: Plans
+  url: plans/buffer-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/buffer-rate-limits.yml
+- type: FinOps
+  url: finops/buffer-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
