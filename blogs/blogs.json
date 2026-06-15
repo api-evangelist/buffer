@@ -28,7 +28,7 @@
       "description": "Research-driven guide emphasizing consistency and engagement as primary growth drivers, with platform-specific posting frequency recommendations and timing data."
     },
     {
-      "title": "We Built a Custom Workflow with the Buffer API — and Tripled Our X Impressions",
+      "title": "We Built a Custom Workflow with the Buffer API \u2014 and Tripled Our X Impressions",
       "url": "https://buffer.com/resources/we-built-a-custom-workflow-with-the-buffer-api-and-tripled-our-x-impressions/",
       "date": "2026-06-08",
       "description": "Technical case study detailing how QualityAssuranceJobs.com built a custom automation system using the Buffer API to improve job posting distribution speed and accuracy."
@@ -63,5 +63,17 @@
       "date": "2025-12-15",
       "description": "Comprehensive guide to LinkedIn marketing strategy covering content types, posting frequency, company pages, and personal branding."
     }
-  ]
+  ],
+  "repo": "buffer",
+  "feeds": [
+    {
+      "source": "https://www.linkedin.com/company/bufferapp",
+      "feed_url": "https://www.linkedin.com/company/bufferapp",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
 }
