@@ -5,7 +5,7 @@ description: Buffer is a social media scheduling and analytics platform with a G
   and publishing across multiple social channels including Instagram, LinkedIn, X,
   TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business
   Profiles.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -22,7 +22,7 @@ apis:
   description: GraphQL API for scheduling and publishing posts, managing social media
     channels, handling content ideas, and accessing post metrics across 11 major social
     media platforms.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developers.buffer.com/
   baseURL: https://api.buffer.com/
   tags:

@@ -5,7 +5,7 @@
   "name": "Buffer",
   "description": "Buffer is a social media scheduling and analytics platform with a GraphQL API for scheduling posts, managing content queues, accessing engagement metrics, and publishing across multiple social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business Profiles.",
   "url": "https://buffer.com",
-  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
   "sameAs": [
     "https://github.com/bufferapp",
     "https://www.linkedin.com/company/bufferapp",
