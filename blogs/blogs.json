@@ -1,79 +1,18 @@
 {
-  "url": "https://buffer.com/resources/",
-  "feed": "https://buffer.com/resources/feed/",
-  "last_fetched": "2026-06-13",
-  "posts": [
-    {
-      "title": "Which Social Media APIs Support Multi-Platform Posting? 6 Free + Paid Options",
-      "url": "https://buffer.com/resources/social-media-api-multi-platform-posting/",
-      "date": "2026-06-11",
-      "description": "Comparison of unified posting APIs and native platform options for cross-platform social publishing. Covers Buffer, Ayrshare, Postiz, Post for Me, Zernio, and Outstand with pricing details."
-    },
-    {
-      "title": "How the Engineer Behind Coding Kitty Built a Full Video Publishing Engine on Buffer's API",
-      "url": "https://buffer.com/resources/coding-kitty-case-study/",
-      "date": "2026-06-11",
-      "description": "Developer case study demonstrating how a creator leveraged the Buffer API to streamline video publishing across Instagram, TikTok, and YouTube using a custom desktop application."
-    },
-    {
-      "title": "Why LinkedIn Is the Most-Cited Source in AI Search (and What Your Business Should Do Next)",
-      "url": "https://buffer.com/resources/why-use-linkedin-for-business/",
-      "date": "2026-06-10",
-      "description": "Analysis of LinkedIn's rise as the number-one cited domain in AI search engines. Explores why authentic professional content from real people outperforms corporate broadcasts."
-    },
-    {
-      "title": "How to Grow on Social Media in 2026: A Data-Backed Strategy",
-      "url": "https://buffer.com/resources/creator-growth-playbook/",
-      "date": "2026-06-10",
-      "description": "Research-driven guide emphasizing consistency and engagement as primary growth drivers, with platform-specific posting frequency recommendations and timing data."
-    },
-    {
-      "title": "We Built a Custom Workflow with the Buffer API \u2014 and Tripled Our X Impressions",
-      "url": "https://buffer.com/resources/we-built-a-custom-workflow-with-the-buffer-api-and-tripled-our-x-impressions/",
-      "date": "2026-06-08",
-      "description": "Technical case study detailing how QualityAssuranceJobs.com built a custom automation system using the Buffer API to improve job posting distribution speed and accuracy."
-    },
-    {
-      "title": "The 11 Best Social Media Management Tools in 2026",
-      "url": "https://buffer.com/resources/best-social-media-management-tools/",
-      "date": "2026-06-08",
-      "description": "Comprehensive comparison of leading social media management platforms with features, pricing, and use cases for businesses and creators."
-    },
-    {
-      "title": "13 Trending Sounds on Instagram in June 2026",
-      "url": "https://buffer.com/resources/trending-audio-instagram/",
-      "date": "2026-06-05",
-      "description": "Curated list of trending audio tracks on Instagram Reels for June 2026, with tips for creators to maximize reach using trending sounds."
-    },
-    {
-      "title": "The Best Time to Post on TikTok in 2026",
-      "url": "https://buffer.com/resources/best-time-to-post-on-tiktok/",
-      "date": "2026-05-12",
-      "description": "Data-driven analysis of optimal TikTok posting times by day, industry, and audience timezone for maximum engagement in 2026."
-    },
-    {
-      "title": "TikTok Algorithm Guide 2026",
-      "url": "https://buffer.com/resources/tiktok-algorithm/",
-      "date": "2025-12-17",
-      "description": "In-depth guide to how the TikTok algorithm ranks and distributes content, with actionable strategies for creators and brands."
-    },
-    {
-      "title": "LinkedIn Marketing in 2026: Complete Guide",
-      "url": "https://buffer.com/resources/linkedin-marketing/",
-      "date": "2025-12-15",
-      "description": "Comprehensive guide to LinkedIn marketing strategy covering content types, posting frequency, company pages, and personal branding."
-    }
-  ],
   "repo": "buffer",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/bufferapp",
-      "feed_url": "https://www.linkedin.com/company/bufferapp",
+      "source": "https://buffer.com/resources/feed/",
+      "feed_url": "https://buffer.com/resources/feed/",
       "title": "",
-      "saved": 0,
-      "method": "none"
+      "saved": 6,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.linkedin.com/company/bufferapp",
+      "error": "HTTPError"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z",
+  "post_count": 9
 }
