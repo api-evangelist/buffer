@@ -38,6 +38,8 @@ apis:
   - url: graphql/buffer-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/buffer-domain-security.yml
 - type: Website
   url: https://buffer.com
 - type: Documentation
