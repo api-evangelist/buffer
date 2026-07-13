@@ -5,14 +5,17 @@
       "source": "https://buffer.com/resources/feed/",
       "feed_url": "https://buffer.com/resources/feed/",
       "title": "",
-      "saved": 6,
+      "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://www.linkedin.com/company/bufferapp",
-      "error": "HTTPError"
+      "feed_url": "https://www.linkedin.com/company/bufferapp",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:03:07Z",
-  "post_count": 9
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 21
 }
