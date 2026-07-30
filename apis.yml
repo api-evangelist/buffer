@@ -5,7 +5,19 @@ description: Buffer is a social media scheduling and analytics platform with a G
   and publishing across multiple social channels including Instagram, LinkedIn, X,
   TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business
   Profiles.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/buffer.png
 url: https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
