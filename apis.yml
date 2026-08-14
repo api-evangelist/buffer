@@ -1,26 +1,31 @@
 aid: buffer
 name: Buffer
-description: Buffer is a social media scheduling and analytics platform with a GraphQL
-  API for scheduling posts, managing content queues, accessing engagement metrics,
-  and publishing across multiple social channels including Instagram, LinkedIn, X,
-  TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business
-  Profiles.
+description: Buffer is a social media scheduling, publishing and analytics platform
+  with a GraphQL API for scheduling posts, managing content queues and ideas, working
+  with post templates, accessing normalized engagement metrics, and publishing across
+  eleven social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads,
+  Pinterest, Bluesky, YouTube, Mastodon and Google Business Profiles. Access is by
+  personal API key or OAuth 2.0 with PKCE, and Buffer also operates a hosted Model
+  Context Protocol server plus a first-party CLI that ships installable agent skills.
+  The legacy REST API is being retired on February 1, 2027.
 accessModel:
   pricing: freemium
-  onboarding: unknown
-  trial: false
-  try_now: false
-  public: false
+  onboarding: self-service
+  trial: true
+  try_now: true
+  public: true
   label: Freemium
-  confidence: medium
+  confidence: high
   source:
   - plans
-  generated: '2026-07-22'
-  method: derived
+  - https://buffer.com/pricing
+  - https://developers.buffer.com/explorer.html
+  generated: '2026-08-13'
+  method: searched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/buffer.png
 url: https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 tags:
 - Social Media
@@ -32,12 +37,15 @@ tags:
 - Social Media Marketing
 - Marketing
 - Content Scheduling
+- GraphQL
+- MCP
+- Agents
 apis:
 - aid: buffer:buffer-api
   name: Buffer API
   description: GraphQL API for scheduling and publishing posts, managing social media
-    channels, handling content ideas, and accessing post metrics across 11 major social
-    media platforms.
+    channels, handling content ideas and idea groups, post templates, and accessing
+    normalized post metrics across 11 major social media platforms.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developers.buffer.com/
   baseURL: https://api.buffer.com/
@@ -49,35 +57,122 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.buffer.com/
+  - type: APIReference
+    url: https://developers.buffer.com/reference.html
+  - type: GettingStarted
+    url: https://developers.buffer.com/guides/getting-started.html
   - type: Authentication
-    url: https://support.buffer.com/article/859-does-buffer-have-an-api
-  - url: graphql/buffer-graphql.md
-    type: GraphQL
+    url: authentication/buffer-authentication.yml
+  - type: OAuthScopes
+    url: scopes/buffer-scopes.yml
+  - type: GraphQL
+    url: graphql/buffer-graphql.md
+  - type: ErrorCatalog
+    url: errors/buffer-error-codes.yml
+  - type: DataModel
+    url: data-model/buffer-data-model.yml
+  - type: Conventions
+    url: conventions/buffer-conventions.yml
+  - type: RateLimits
+    url: rate-limits/buffer-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/buffer-sandbox.yml
+  - type: MCPServer
+    url: mcp/buffer-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/buffer-tool-crosswalk.yml
 common:
-- type: DomainSecurity
-  url: security/buffer-domain-security.yml
 - type: Website
   url: https://buffer.com
+- type: DeveloperPortal
+  url: https://developers.buffer.com/
 - type: Documentation
   url: https://developers.buffer.com/
+- type: APIReference
+  url: https://developers.buffer.com/reference.html
+- type: GettingStarted
+  url: https://developers.buffer.com/guides/getting-started.html
+- type: Authentication
+  url: authentication/buffer-authentication.yml
+- type: OAuthScopes
+  url: scopes/buffer-scopes.yml
+- type: GitHubOrganization
+  url: https://github.com/bufferapp
 - type: GitHubOrg
   url: https://github.com/bufferapp
 - type: LinkedIn
   url: https://www.linkedin.com/company/bufferapp
-- type: Blog
-  url: https://buffer.com/resources/
-- type: Pricing
-  url: https://buffer.com/pricing
-- type: StatusPage
-  url: https://status.buffer.com/
 - type: X
   url: https://x.com/buffer
+- type: Blog
+  url: https://buffer.com/resources/
+- type: Support
+  url: https://support.buffer.com/
+- type: Pricing
+  url: https://buffer.com/pricing
+- type: SignUp
+  url: https://buffer.com/signup
+- type: TermsOfService
+  url: https://buffer.com/terms
+- type: PrivacyPolicy
+  url: https://buffer.com/privacy
+- type: Compliance
+  url: https://buffer.com/security
+- type: Roadmap
+  url: https://developers.buffer.com/roadmap.html
+- type: ChangeLog
+  url: https://developers.buffer.com/changelog.html
+- type: StatusPage
+  url: https://status.buffer.com/
+- type: Deprecation
+  url: https://developers.buffer.com/guides/api-standards.html
+- type: Security
+  url: https://buffer.com/security
 - type: Plans
   url: plans/buffer-plans-pricing.yml
 - type: RateLimits
   url: rate-limits/buffer-rate-limits.yml
 - type: FinOps
   url: finops/buffer-finops.yml
+- type: Packages
+  url: packages/buffer-packages.yml
+- type: SDKs
+  url: packages/buffer-packages.yml
+- type: CLI
+  url: cli/buffer-cli.yml
+- type: MCPServer
+  url: mcp/buffer-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/buffer-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/buffer-llms.txt
+- type: WellKnown
+  url: well-known/buffer-well-known.yml
+- type: Conventions
+  url: conventions/buffer-conventions.yml
+- type: ErrorCatalog
+  url: errors/buffer-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/buffer-lifecycle.yml
+- type: ChangeLog
+  url: changelog/buffer-changelog.yml
+- type: Conformance
+  url: conformance/buffer-conformance.yml
+- type: DataModel
+  url: data-model/buffer-data-model.yml
+- type: Sandbox
+  url: sandbox/buffer-sandbox.yml
+- type: DomainSecurity
+  url: security/buffer-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/buffer-vulnerability-disclosure.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 27
+  pass: local-v1
