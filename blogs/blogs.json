@@ -14,8 +14,15 @@
       "title": "",
       "saved": 0,
       "method": "none"
+    },
+    {
+      "source": "https://x.com/buffer",
+      "feed_url": "https://x.com/buffer",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-08-06T14:08:46Z",
-  "post_count": 41
+  "fetched": "2026-08-15T12:22:01Z",
+  "post_count": 47
 }
