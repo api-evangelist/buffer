@@ -1,0 +1,104 @@
+generated: '2026-08-13'
+method: searched
+source: https://auth.buffer.com/.well-known/oauth-authorization-server
+docs: https://developers.buffer.com/guides/authentication.html#scopes
+note: >-
+  Two sources disagree in a useful way and both are recorded. Buffer's
+  published Scopes table in the authentication guide lists SEVEN scopes. The
+  live RFC 8414 / OIDC discovery documents advertise TEN — the same seven plus
+  insights:read, engagements:read and engagements:write, which are
+  undocumented in the guide. The MCP server's RFC 9728 protected-resource
+  metadata advertises nine (the ten minus offline_access, which is not a
+  resource permission). Every scope below carries which source names it.
+  Personal API keys have NO scope model at all — Buffer states the key is
+  account-based and reaches everything the account can see — so scopes apply
+  only to the OAuth path.
+schemes:
+  - name: OAuth2AuthorizationCodePKCE
+    source: https://auth.buffer.com/.well-known/oauth-authorization-server
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://auth.buffer.com/auth
+        tokenUrl: https://auth.buffer.com/token
+        pkce: S256 required
+scopes:
+  - scope: posts:read
+    description: View posts and queue.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: posts:write
+    description: Create and manage posts on the user's behalf.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: ideas:read
+    description: View ideas.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: ideas:write
+    description: Create and manage ideas on the user's behalf.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: account:read
+    description: View account information.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: account:write
+    description: Update account settings.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: true
+  - scope: offline_access
+    description: Receive a refresh token for long-lived access.
+    flows: [authorizationCode]
+    sources: [docs, oauth-authorization-server, openid-configuration]
+    documented: true
+    note: >-
+      Not advertised by the MCP protected-resource metadata, which lists only
+      resource permissions.
+  - scope: insights:read
+    description: >-
+      Not described by Buffer. Advertised by the authorization server and by
+      the MCP protected-resource metadata. By name it maps to the analytics
+      surface Buffer ships as Insights (Post.metrics, aggregatedPostMetrics).
+    flows: [authorizationCode]
+    sources: [oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: false
+  - scope: engagements:read
+    description: >-
+      Not described by Buffer. Advertised by the authorization server and by
+      the MCP protected-resource metadata. By name it maps to Buffer's
+      comments/community engagement product; the roadmap carries a "Community
+      API" item for automating comment replies, still in Exploring.
+    flows: [authorizationCode]
+    sources: [oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: false
+  - scope: engagements:write
+    description: >-
+      Not described by Buffer. Advertised by the authorization server and by
+      the MCP protected-resource metadata.
+    flows: [authorizationCode]
+    sources: [oauth-authorization-server, openid-configuration, oauth-protected-resource]
+    documented: false
+  - scope: openid
+    description: Standard OIDC scope, advertised only by the OpenID discovery document.
+    flows: [authorizationCode]
+    sources: [openid-configuration]
+    documented: false
+gaps:
+  - >-
+    There is no scope model for personal API keys. Buffer's roadmap carries
+    "API permissions / scopes — Create restricted API keys with limited
+    capabilities" in the Exploring column, which is the provider's own
+    acknowledgement of this gap.
+  - >-
+    insights:read, engagements:read and engagements:write are live on the
+    authorization server but absent from the published Scopes table.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://auth.buffer.com/.well-known/oauth-authorization-server', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://mcp.buffer.com/.well-known/oauth-protected-resource', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/authentication.html', http_status: 200}

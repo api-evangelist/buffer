@@ -1,0 +1,157 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/api-standards.html
+docs:
+  - https://developers.buffer.com/guides/api-standards.html
+  - https://developers.buffer.com/guides/pagination.html
+  - https://developers.buffer.com/guides/error-handling.html
+  - https://developers.buffer.com/guides/api-limits.html
+api: Buffer GraphQL API
+endpoint: https://api.buffer.com
+transport:
+  protocol: GraphQL over HTTP POST
+  content_type: application/json
+  http_status_semantics: >-
+    Always 200 for application outcomes — "GraphQL always returns HTTP 200.
+    Check the response body to determine success or failure." The exceptions
+    observed are 401 for an unauthenticated request and 429 on rate-limit
+    exhaustion.
+authentication:
+  style: bearer
+  header: 'Authorization: Bearer <token>'
+  credentials: [personal API key, OAuth 2.0 access token]
+  detail: authentication/buffer-authentication.yml
+idempotency:
+  supported: false
+  key_header: null
+  detail: >-
+    STATED ABSENT BY THE PROVIDER, not merely undetected. Buffer's own agent
+    skill file says verbatim: "There is no idempotency-key mechanism in the API
+    today; retry safety is a function of the operation alone." No
+    Idempotency-Key header, no request-id dedupe, no replay window.
+  retry_safety_matrix:
+    idempotent:
+      - Query.account
+      - Query.channels
+      - Query.channel
+      - Query.posts
+      - Query.post
+      - Query.dailyPostingLimits
+    not_idempotent:
+      - operation: Mutation.createPost
+        on_retry: duplicate post created
+      - operation: Mutation.createIdea
+        on_retry: duplicate idea created
+    effectively_idempotent:
+      - operation: Mutation.deletePost
+        on_retry: >-
+          Second call returns an error / "not found"; the data is already gone.
+          Buffer instructs treating this as "already deleted", not as a failure.
+  provider_guidance: >-
+    Buffer's published mitigation is inspect-before-retry — on a failed
+    createPost, list recent posts filtered by channelId and createdAt to detect
+    whether the previous attempt landed before retrying — plus a preference for
+    drafts (saveToDraft) in any pipeline that might be re-run, since a
+    duplicate draft is cheap to delete.
+  source: skills/buffer-idempotency.md
+  note: >-
+    No `Idempotency` pointer is emitted in apis.yml for this provider. Emitting
+    one would assert an idempotency contract Buffer explicitly says it does not
+    have.
+pagination:
+  style: cursor
+  convention: Relay connections
+  request_params:
+    - {name: first, type: Int, meaning: maximum number of items to return (synonymous with limit)}
+    - {name: after, type: String, meaning: opaque cursor to start fetching from}
+    - {name: input, meaning: 'required static fields (typically organizationId) plus an optional filter object'}
+  response_fields:
+    - {name: edges, meaning: 'list of connections, each {node, cursor}'}
+    - {name: pageInfo.startCursor, meaning: first cursor in the list}
+    - {name: pageInfo.endCursor, meaning: last cursor in the list; use to fetch the next page}
+    - {name: pageInfo.hasNextPage, meaning: a next page is available}
+    - {name: pageInfo.hasPreviousPage, meaning: 'always false — only forward pagination is supported today'}
+    - {name: totalCount, meaning: 'optional; when present, always non-null; total matching the filters'}
+  direction: forward-only
+  cursor_opacity: >-
+    "Cursors are opaque strings. Do not parse or construct them yourself."
+  filter_logic: AND between all defined filter items; omitted fields apply no filtering.
+field_selection:
+  mechanism: GraphQL selection sets
+  cli_projection: >-
+    The first-party CLI exposes this as --fields with dot-notation and brace
+    expansion, rendered into the GraphQL request itself so the API skips
+    unrequested fields. Each command also ships a curated defaultFields set.
+  metrics_opt_in: >-
+    Post.metrics is NOT in default responses — an agent must ask for it
+    explicitly.
+metadata:
+  mechanism: per-service polymorphic metadata
+  detail: >-
+    Rather than a free-form metadata bag, Buffer models network-specific
+    behaviour as a union: PostMetadata over eleven per-service types on read,
+    and PostInputMetaData with one optional field per service on write. Channel
+    settings use the same shape via ChannelMetadata. This is the main thing an
+    agent must get right — see skills/buffer-pitfalls.md for per-service
+    minimum payloads.
+schema_evolution:
+  policy: always add, never modify or remove
+  statement: >-
+    "We only add to the schema. We won't modify or remove existing fields and
+    types. Your queries and mutations will keep working as we ship updates."
+  deprecation_marker: '@deprecated(reason: "...")'
+  deprecation_reason_contains: the replacement field and the removal date
+  input_objects: >-
+    Operations take a single dedicated input object rather than inline scalar
+    arguments, so new fields can be added without touching existing operations.
+  input_field_ordering: >-
+    New fields are always APPENDED to the end of input types, because some
+    code-generated clients send arguments positionally and an inserted field
+    would shift them. Buffer's guidance to clients: always use named arguments.
+  typed_responses: >-
+    Operations return typed response objects, not scalars, which is what makes
+    the union-based error model possible.
+  nullability: >-
+    Nullability is used deliberately as a contract signal — non-null (!) means
+    a value is guaranteed; nullable means the client must handle null. Boolean
+    fields are always non-null.
+error_envelope:
+  model: two-category
+  recoverable: typed members of the mutation payload union, all implementing MutationError
+  non_recoverable: 'standard GraphQL errors[] with extensions.code'
+  detail: errors/buffer-error-codes.yml
+rate_limit_signaling:
+  headers: [RateLimit, RateLimit-Policy, 'X-RateLimit-* (legacy fallback)']
+  exhaustion_status: 429
+  retry_hint: Retry-After response header, in seconds
+  detail: rate-limits/buffer-rate-limits.yml
+request_tracing:
+  request_id_header: null
+  detail: >-
+    Buffer documents no request-id or correlation header. Recorded as an honest
+    absence — nothing was found on any docs page or in the CLI package.
+versioning:
+  scheme: none
+  detail: >-
+    No version in the path, no version header, no dated version train. A single
+    evergreen GraphQL endpoint at https://api.buffer.com, evolved additively.
+    Preview and experimental fields are marked in the published reference
+    (Preview: post templates; Experimental: movePostInQueue, and the metrics
+    schema is marked @experimental).
+  detail_ref: lifecycle/buffer-lifecycle.yml
+dry_run:
+  api_level: false
+  client_level: true
+  detail: >-
+    The API itself has no dry-run mode. The first-party CLI provides one:
+    every mutation supports --dry-run, which validates the input locally and
+    prints the payload that would be sent without calling the API. Buffer's own
+    agent guidance is to dry-run every generated payload first.
+cross_links:
+  errors: errors/buffer-error-codes.yml
+  lifecycle: lifecycle/buffer-lifecycle.yml
+  authentication: authentication/buffer-authentication.yml
+  scopes: scopes/buffer-scopes.yml
+  rate_limits: rate-limits/buffer-rate-limits.yml
+  data_model: data-model/buffer-data-model.yml
+  sandbox: sandbox/buffer-sandbox.yml

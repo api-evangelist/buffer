@@ -1,0 +1,1 @@
+{"resource":"https://mcp.buffer.com/mcp","authorization_servers":["https://auth.buffer.com"],"scopes_supported":["posts:read","posts:write","ideas:read","ideas:write","account:read","account:write","insights:read","engagements:read","engagements:write"],"bearer_methods_supported":["header"]}

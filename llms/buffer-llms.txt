@@ -1,0 +1,64 @@
+# Buffer API
+
+> Connect Buffer to your agents, automation tools, or build something entirely new.
+
+API Endpoint: https://api.buffer.com
+Authentication: Bearer token via Authorization header
+
+## Guides
+
+- [Introduction](/guides/introduction.md)
+- [Quick Start](/guides/getting-started.md)
+- [Authentication](/guides/authentication.md)
+- [Your First Post](/guides/your-first-post.md)
+- [GraphQL for REST Devs](/guides/graphql-intro.md)
+- [REST API Migration](/guides/rest-migration.md)
+- [Data Model](/guides/data-model.md)
+- [Posts & Scheduling](/guides/posts-and-scheduling.md)
+- [Ideas](/guides/ideas.md)
+- [Hosting Media](/guides/hosting-media.md)
+- [Post Metrics](/guides/post-metrics.md)
+- [API Standards](/guides/api-standards.md)
+- [Error Handling](/guides/error-handling.md)
+- [Rate Limits](/guides/api-limits.md)
+- [Pagination](/guides/pagination.md)
+- [Buffer CLI](/guides/cli.md)
+- [Integrations](/guides/integrations.md)
+- [Zapier](/guides/integrations/zapier.md)
+- [Claude](/guides/integrations/claude.md)
+- [MCP](/guides/integrations/mcp.md)
+- [Cursor](/guides/integrations/cursor.md)
+- [n8n](/guides/integrations/n8n.md)
+- [Raycast](/guides/integrations/raycast.md)
+- [ChatGPT](/guides/integrations/chatgpt.md)
+- [Notion](/guides/integrations/notion.md)
+- [Perplexity](/guides/integrations/perplexity.md)
+- [Antigravity](/guides/integrations/antigravity.md)
+- [Manus](/guides/integrations/manus.md)
+
+## Examples
+
+- [Aggregate Post Metrics](/examples/aggregate-post-metrics.md): Aggregate normalized post metrics across a window of sent posts, without paginating through individual posts. Available for personal workflows and automations only, using a personal API key.
+- [Create Draft Post](/examples/create-draft-post.md): Draft posts can be created using the createPost mutation with the `saveToDraft` argument set to `true`. When saving a post as a draft, there are several required arguments:
+- [Create Idea](/examples/create-idea.md): Create an idea post for a specified Organization, using the provided content.
+- [Create Image Post](/examples/create-image-post.md): Creating a post with an image works in the same way as creating a text post, with the addition of the `assets` argument. `assets` is an ordered list where each entry specifies exactly one of `image`, `video`, `document`, or `link` — for an image post, pass an `image` entry with the URL you want to attach.
+- [Create Instagram Post With User Tags](/examples/create-instagram-post-with-user-tags.md): User tags let you tag Instagram accounts at a specific point on an image. They are attached per image, on the asset's `metadata.userTags` field - not on the Instagram post metadata - so the same approach works for Instagram posts and stories.
+- [Create Scheduled Post](/examples/create-scheduled-post.md): Scheduled posts can be created using the createPost mutation with the `customScheduled` mode and a `dueAt` timestamp. When creating a scheduled post, there are several required arguments:
+- [Create Text Post](/examples/create-text-post.md): Text posts can be created using the createPost mutation. When creating a post, there are several required arguments:
+- [Create Threaded Post](/examples/create-threaded-post.md): Threaded posts (for example a Twitter/X thread or a Bluesky, Threads, or Mastodon thread) are created with the `createPost` mutation by passing a `thread` array inside the service-specific `metadata`. Each entry in the array is one post in the thread, and they are published in order, each replying to the previous one.
+- [Create Video Post](/examples/create-video-post.md): Creating a post with a video works in the same way as creating a text post, with the addition of a `video` entry in the `assets` array. `assets` is an ordered list where each entry specifies exactly one of `image`, `video`, `document`, or `link` - pass a `video` entry with the URL you want to attach.
+- [Get Channel](/examples/get-channel.md): Fetch a single channel by its ID.
+- [Get Channels](/examples/get-channels.md): Fetch all channels for the provided Organization ID.
+- [Get Filtered Channels](/examples/get-filtered-channels.md): Fetch all channels for the provided Organization ID.
+- [Get Organizations](/examples/get-organizations.md): Fetch all of the organizations that belong to the authenticated account.
+- [Get Paginated Posts](/examples/get-paginated-posts.md): Fetch a list of posts with support for pagination.
+- [Get Post Metrics](/examples/get-post-metrics.md): Fetch performance metrics for a single post. Available for personal workflows and automations only, using a personal API key.
+- [Get Posts For Channels](/examples/get-posts-for-channels.md): Fetch a list of posts for a specific set of Channel IDs.
+- [Get Posts With Assets](/examples/get-posts-with-assets.md): Fetch a list of posts along with their associated assets (images, videos, etc.) for a specific set of Channel IDs.
+- [Get Posts With Metrics](/examples/get-posts-with-metrics.md): Fetch a paginated list of sent posts together with their performance metrics. Available for personal workflows and automations only, using a personal API key.
+- [Get Quarterly Performance Report](/examples/get-quarterly-performance-report.md): Roll up a quarter of publishing activity into a single aggregate. Useful for BI exports, board-deck stats, or year-on-year comparisons without paginating through every post.
+- [Get Scheduled Posts](/examples/get-scheduled-posts.md): Fetch a list of posts that are scheduled for future publishing.
+
+## API Reference
+
+- [API Reference](/reference.md): Complete GraphQL API reference with queries, mutations, and types

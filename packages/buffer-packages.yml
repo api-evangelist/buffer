@@ -1,0 +1,102 @@
+generated: '2026-08-13'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=%40bufferapp
+docs: https://developers.buffer.com/guides/cli.html
+note: >-
+  Buffer publishes no conventional server-side SDK for the GraphQL API — the
+  Quick Start tells developers to POST GraphQL to https://api.buffer.com with
+  a Bearer token, or use the first-party CLI. The two currently-maintained
+  first-party client artifacts are the CLI and the official n8n node, both on
+  npm under the @bufferapp scope. Everything else under @bufferapp on npm is
+  an internal front-end/UI or logging package for Buffer's own web apps, not
+  an API client, and most were last published in 2019-2024; those are recorded
+  below under `non_client_packages` rather than as SDKs so the SDK count is
+  not inflated. PyPI, RubyGems, crates.io, Packagist, NuGet, Maven Central and
+  pkg.go.dev carry no first-party Buffer API client.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@bufferapp/cli"
+    url: https://www.npmjs.com/package/@bufferapp/cli
+    install: npm install -g @bufferapp/cli
+    official: true
+    version: 1.2.0
+    published: '2026-07-13'
+    license: ISC
+    repository: https://github.com/bufferapp/buffer-mono
+    repository_directory: services/cli
+    description: >-
+      CLI for Buffer, designed for AI agents and humans. Every command is
+      generated from Buffer's public GraphQL schema; ships structured JSON
+      output, --dry-run on every mutation, runtime schema introspection
+      (`buffer schema describe`), and markdown agent skill files installable
+      into Claude Code and Codex.
+    requires: Node.js >= 18
+    surface: cli/buffer-cli.yml
+  - language: javascript
+    registry: npm
+    name: "@bufferapp/n8n-nodes-buffer"
+    url: https://www.npmjs.com/package/@bufferapp/n8n-nodes-buffer
+    install: npm install @bufferapp/n8n-nodes-buffer
+    official: true
+    version: 3.8.1
+    published: '2026-08-03'
+    repository: https://github.com/bufferapp/buffer-n8n
+    description: >-
+      First-party n8n community node for Buffer. Buffer's own n8n integration
+      guide, however, documents connecting through the MCP Client node against
+      https://mcp.buffer.com/mcp rather than through this node.
+    docs: https://developers.buffer.com/guides/integrations/n8n.html
+non_client_packages:
+  note: >-
+    Present on npm under the @bufferapp scope but not clients of the public
+    Buffer API — internal UI component libraries, Redux helpers and loggers for
+    Buffer's own products. Listed for completeness with their real currency so
+    the abandonment picture is honest; NOT counted as SDKs.
+  packages:
+    - name: "@bufferapp/bufflog"
+      version: 0.6.1
+      published: '2026-05-13'
+      kind: logging
+    - name: "@bufferapp/ui"
+      version: 9.8.5
+      published: '2024-08-19'
+      kind: ui-components
+    - name: "@bufferapp/micro-rpc-client"
+      version: 1.5.0
+      published: '2024-09-23'
+      kind: internal-rpc
+    - name: "@bufferapp/features"
+      version: 2.2.1
+      published: '2024-03-28'
+      kind: internal-feature-flags
+    - name: "@bufferapp/components"
+      version: 4.3.0
+      published: '2023-09-14'
+      kind: ui-components
+third_party:
+  note: >-
+    Not first-party; recorded so a consumer can tell them apart from the
+    official packages above.
+  packages:
+    - name: n8n-nodes-buffer
+      registry: npm
+      version: 0.2.6
+      published: '2026-05-13'
+      repository: https://github.com/PramaAditya/n8n-nodes-buffer
+      official: false
+    - name: passport-bufferapp
+      registry: npm
+      version: 0.1.1
+      published: '2012-10-02'
+      official: false
+      note: Passport strategy for the retired legacy REST API era.
+registries_checked:
+  - {registry: npm, endpoint: 'https://registry.npmjs.org/', result: 2 official client packages}
+  - {registry: pypi, endpoint: 'https://pypi.org/pypi/<pkg>/json', result: no first-party package}
+  - {registry: rubygems, endpoint: 'https://rubygems.org/api/v1/gems/<pkg>.json', result: no first-party package}
+  - {registry: crates.io, endpoint: 'https://crates.io/api/v1/crates/<pkg>', result: no first-party package}
+  - {registry: packagist, endpoint: 'https://packagist.org/', result: no first-party package}
+  - {registry: nuget, endpoint: 'https://api.nuget.org/', result: no first-party package}
+  - {registry: maven-central, endpoint: 'https://search.maven.org/', result: no first-party package}
+  - {registry: go-modules, endpoint: 'https://proxy.golang.org/', result: no first-party package}

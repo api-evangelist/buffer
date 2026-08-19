@@ -1,54 +1,125 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/api-limits.html
+url: https://developers.buffer.com/guides/api-limits.html
 name: Buffer API Rate Limits
-description: Rate limits for the Buffer GraphQL API, enforced per client and per account with rolling windows
-url: https://support.buffer.com/article/859-does-buffer-have-an-api
-api: GraphQL API
+description: >-
+  Three stacked rolling windows enforced per API client, plus GraphQL
+  query-cost limits. Corrected 2026-08-13 against Buffer's own published table
+  — the previous capture of this file had the 24-hour Free/Essentials limits
+  and the per-plan API key counts wrong.
+api: Buffer GraphQL API
+endpoint: https://api.buffer.com
+limit_count: 5
+scope: per-client
+scope_detail: >-
+  "Limits per API key; not per-channel and not per-org. Concurrent API keys
+  have independent budgets." Buffer also notes the rate limits are tied to the
+  plan of the organization where the API client was created.
 windows:
-  - type: per-client
-    description: Rate limit per API key/OAuth client (rolling window)
+  - name: 15m
+    window: 15 minutes
+    window_seconds: 900
+    purpose: burst protection
+    rolling: true
     limits:
-      - plan: All Plans
-        window: 15 minutes
-        requests: 100
-        notes: Hard ceiling regardless of plan; approximately 6.7 requests per minute
-  - type: per-account-daily
-    description: Rate limit per Buffer account across all clients (rolling 24-hour window)
+      - {plan: Free, requests: 100}
+      - {plan: Essentials, requests: 100}
+      - {plan: Team, requests: 100}
+  - name: 24h
+    window: 24 hours
+    window_seconds: 86400
+    purpose: daily fairness
+    rolling: true
     limits:
-      - plan: Free
-        window: 24 hours
-        requests: 100
-      - plan: Essentials
-        window: 24 hours
-        requests: 250
-      - plan: Team
-        window: 24 hours
-        requests: 500
-  - type: per-account-monthly
-    description: Monthly request quota per Buffer account (rolling 30-day window)
+      - {plan: Free, requests: 250}
+      - {plan: Essentials, requests: 250}
+      - {plan: Team, requests: 500}
+  - name: 30d
+    window: 30 days
+    window_seconds: 2592000
+    purpose: quota
+    rolling: true
     limits:
-      - plan: Free
-        window: 30 days
-        requests: 3000
-        apiKeys: 1
-      - plan: Essentials
-        window: 30 days
-        requests: 7500
-        apiKeys: 5
-      - plan: Team
-        window: 30 days
-        requests: 15000
-        apiKeys: 5
-graphqlLimits:
-  - type: query-complexity
-    description: Maximum GraphQL query complexity score per request
-    limit: 175000
-    unit: points
-  - type: query-depth
-    description: Maximum depth of nested fields in a single GraphQL query
-    limit: 25
-    unit: levels
+      - {plan: Free, requests: 3000}
+      - {plan: Essentials, requests: 7500}
+      - {plan: Team, requests: 15000}
+client_allowances:
+  - {plan: Free, api_keys: 1, app_clients: 1}
+  - {plan: Essentials, api_keys: 3, app_clients: 3}
+  - {plan: Team, api_keys: 5, app_clients: 5}
+response_headers:
+  standard: IETF RateLimit header fields (structured fields, one entry per policy)
+  headers:
+    - name: RateLimit
+      description: 'Live status per policy. `r` is requests remaining, `t` is seconds until that window resets.'
+      example: '"200-in-15min";r=198;t=897'
+    - name: RateLimit-Policy
+      description: 'Policy description. `q` is the quota, `w` is the window length in seconds, `pk` is the partition key identifying the rate-limit bucket.'
+      example: '"200-in-15min";q=200;w=900;pk=:REDACTED_PARTITION_KEY:'
+    - name: Retry-After
+      description: 'Seconds to wait after a 429. Buffer is explicit: "the retry hint is in the header, not the body."'
+      on: 429
+    - name: X-RateLimit-Limit / X-RateLimit-Remaining / X-RateLimit-Reset
+      description: 'Legacy single-window form. The first-party CLI parses it as a fallback; the RateLimit/RateLimit-Policy pair is preferred.'
+      status: legacy
+  matching_guidance: >-
+    "Policy names like 200-in-15min are generated from your quota and window,
+    so they change with your plan. Match a policy by its window length (w) —
+    900, 86400, or 2592000 — rather than by name."
+  availability: Returned on every GraphQL response, so quota can be read off requests you already make.
+exhaustion:
+  http_status: 429
+  error_code: RATE_LIMIT_EXCEEDED
+  body: >-
+    {"errors":[{"message":"Too many requests from this client. Please try again
+    later.","extensions":{"code":"RATE_LIMIT_EXCEEDED","window":"15m"}}]}
+  window_field: 'extensions.window names which window was exhausted: 15m, 24h or 30d.'
+  backoff_policy: >-
+    Buffer's published policy (shipped in its own agent skill file): read
+    Retry-After, sleep that many seconds, retry once; if 429 again, double the
+    sleep and retry once more, then surface the failure. The CLI does not
+    auto-retry — the caller owns the policy.
+query_limits:
+  note: Enforced in addition to the request-rate limits, to protect against expensive GraphQL documents.
+  cost_model:
+    scalar_field_points: 1
+    object_field_points: 2
+    nesting_multiplier: 1.5x per level of depth
+  limits:
+    - {type: query-complexity, limit: 175000, unit: points}
+    - {type: query-depth, limit: 25, unit: levels}
+    - {type: aliases, limit: 30, unit: aliases per query}
+    - {type: directives, limit: 50, unit: directives per query}
+    - {type: tokens, limit: 15000, unit: 'parser tokens per query document'}
+  error_shape: >-
+    A plain GraphQL error with no extensions code; the message names which
+    limit was exceeded. Example: "Query exceeds maximum allowed complexity.
+    Please simplify your query."
+not_counted:
+  - '--dry-run invocations (no API call is made)'
+  - 'buffer schema *, buffer config *, buffer doctor, buffer context, --help, --version (all local)'
+  - CLI update-check pings (separate registry, not the API)
+monitoring:
+  - {surface: Developer Dashboard, url: 'https://publish.buffer.com/settings/api', detail: Live usage per window for each client.}
+  - {surface: Buffer CLI, detail: 'Reads the headers on every command. --verbose prints a per-window summary; low-headroom warnings fire at remaining/limit < 0.10; on 429 it names the exhausted window and the wait, then exits 3.'}
+gaps:
+  - >-
+    Rate-limit information is reported on stderr only by the CLI. "A structured
+    meta.rateLimit field on stdout JSON is planned but not shipped yet" —
+    Buffer's own words. An agent that needs quota programmatically must capture
+    stderr separately.
+escalation:
+  contact: developersupport@buffer.com
+  detail: '"Does your integration require higher limits? Reach out to developersupport@buffer.com."'
+concurrency_guidance: >-
+  "Serial calls are preferred. Parallelism multiplies 429 risk because all
+  in-flight requests count against the same window. If you must parallelise,
+  cap at 2-3 concurrent."
 notes:
-  - All rate limit windows are rolling (not fixed to clock boundaries)
-  - Multiple personal API keys share one usage pool per account
-  - OAuth app clients have independent rate limit pools
-  - Rate limits are tied to the plan of the organization where the API client was created
-  - High-volume use cases can contact the Buffer developer team for custom arrangements
+  - All three windows are rolling, not aligned to clock boundaries.
+  - Multiple personal API keys on one account each have their own budget.
+  - OAuth app clients have independent rate-limit pools.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/api-limits.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://registry.npmjs.org/@bufferapp/cli', http_status: 200, note: 'rate-limits skill file shipped in the package'}

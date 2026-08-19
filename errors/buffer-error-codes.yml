@@ -1,0 +1,135 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/error-handling.html
+docs:
+  - https://developers.buffer.com/guides/error-handling.html
+  - https://developers.buffer.com/guides/api-standards.html
+format: graphql-typed-errors
+format_note: >-
+  NOT RFC 9457. Buffer is GraphQL-only and publishes no application/problem+json
+  surface. It runs a two-category error model that is unusually well specified,
+  so this artifact is an error-code registry rather than a problem-type catalog.
+  Buffer's own words: "GraphQL always returns HTTP 200. Check the response body
+  to determine success or failure." The one exception is rate limiting, which
+  does return HTTP 429 with a GraphQL-shaped body.
+categories:
+  - id: non-recoverable
+    location: the standard GraphQL `errors` array
+    http_status: 200
+    envelope: '{"data": null, "errors": [{"message": "...", "extensions": {"code": "..."}}]}'
+    description: >-
+      System-level problems outside the caller's control — authentication,
+      permissions, missing resources, server faults. Carry a machine-readable
+      `code` in `extensions`.
+  - id: recoverable
+    location: the mutation payload, as typed data
+    http_status: 200
+    description: >-
+      User-fixable problems — validation failures, plan limits. Returned as
+      members of the mutation's payload union, every one implementing the
+      `MutationError` interface with a human-readable `message`.
+error_codes:
+  - code: UNAUTHORIZED
+    category: non-recoverable
+    meaning: Missing or invalid API key.
+    remediation: Check your Authorization header and API key.
+  - code: FORBIDDEN
+    category: non-recoverable
+    meaning: Valid key, but no permission.
+    remediation: Verify you're accessing resources in your own account.
+  - code: NOT_FOUND
+    category: non-recoverable
+    meaning: Resource doesn't exist.
+    remediation: Check the ID you're using is correct.
+  - code: UNEXPECTED
+    category: non-recoverable
+    meaning: Server error.
+    remediation: Retry after a short delay; contact support if persistent.
+  - code: RATE_LIMIT_EXCEEDED
+    category: non-recoverable
+    meaning: Too many requests.
+    http_status: 429
+    extensions: 'window: 15m | 24h | 30d — names which window was exhausted'
+    remediation: >-
+      Read the Retry-After response header (seconds) — the retry hint is in the
+      header, not the body. Then back off. See rate-limits/buffer-rate-limits.yml.
+  - code: UNAUTHENTICATED
+    category: non-recoverable
+    meaning: >-
+      Returned by the gateway to an anonymous request. Observed live on
+      2026-08-13: {"errors":[{"message":"An authentication JWT or Access Token
+      is required","extensions":{"code":"UNAUTHENTICATED"}}]} with HTTP 401.
+    remediation: Send an Authorization Bearer header.
+    source: probed https://api.buffer.com
+typed_mutation_errors:
+  interface: MutationError
+  interface_shape: 'interface MutationError { message: String! }'
+  catch_all_rule: >-
+    Buffer's stated rule: "always include `... on MutationError` in every
+    mutation." Every payload union carries VoidMutationError, which Buffer says
+    it never explicitly returns — its only job is to guarantee the interface is
+    present so a client picks up error types added later with no code change.
+  types:
+    - type: InvalidInputError
+      meaning: Input validation failed.
+      example_message: Text is required
+      appears_in: [PostActionPayload, CreateIdeaPayload]
+    - type: LimitReachedError
+      meaning: An account or plan limit was reached.
+      appears_in: [PostActionPayload, CreateIdeaPayload]
+    - type: NotFoundError
+      meaning: The referenced resource does not exist.
+      appears_in: [PostActionPayload]
+    - type: UnauthorizedError
+      meaning: The caller is not authorized to perform the action.
+      appears_in: [PostActionPayload, CreateIdeaPayload]
+    - type: UnexpectedError
+      meaning: An unexpected server error occurred.
+      appears_in: [PostActionPayload, CreateIdeaPayload]
+    - type: RestProxyError
+      meaning: >-
+        An error proxied from the legacy REST API response. Carries a `link` to
+        the help centre and a numeric `code`. The schema documents that code
+        against https://buffer.com/developers/api/errors — a legacy REST error
+        registry that is being retired with the legacy API on 2027-02-01.
+      appears_in: [PostActionPayload]
+      fields: [message, link, code]
+    - type: VoidMutationError
+      meaning: >-
+        Never explicitly returned. Present in unions purely so a client's
+        `... on MutationError` catch-all keeps working as new error types land.
+      appears_in: [DeletePostPayload, PostActionPayload]
+    - type: ChannelReconnectRequired
+      meaning: >-
+        Documented in the API Standards guide as the illustrative case for a
+        recoverable error on a QUERY rather than a mutation — fetching a post
+        can require the channel be reconnected. Carries channelId alongside
+        message. Not present in the SDL snapshot in this repo.
+      appears_in: [PostPayload]
+      fields: [message, channelId]
+      status: documented-example
+query_limit_errors:
+  note: >-
+    Query-level limits produce a plain GraphQL error with no extensions code;
+    the message names which limit was exceeded.
+  example: 'Query exceeds maximum allowed complexity. Please simplify your query.'
+  limits: [complexity, depth, aliases, directives, tokens]
+  detail: rate-limits/buffer-rate-limits.yml
+non_api_errors:
+  publishing:
+    type: PostPublishingError
+    note: >-
+      Not an API error. Attached to Post.error when the downstream social
+      network rejected the publish. Carries message, supportUrl (a help-centre
+      article) and rawError (marked internal use only in the schema).
+  oauth: authentication/buffer-authentication.yml
+best_practices_published:
+  - Always include '... on MutationError { message }' in every mutation.
+  - Check the errors array on every response, even for successful mutations.
+  - Do not display raw error messages to end users; switch on the error type.
+  - Log the full error response including query and variables.
+  - Handle RATE_LIMIT_EXCEEDED with exponential backoff.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/error-handling.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/api-standards.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://api.buffer.com', http_status: 401, note: observed UNAUTHENTICATED envelope}

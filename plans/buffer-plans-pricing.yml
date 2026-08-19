@@ -1,65 +1,103 @@
-name: Buffer Plans and Pricing
-description: Pricing plans and API access tiers for Buffer social media scheduling platform
+generated: '2026-08-13'
+method: searched
+source: https://buffer.com/pricing
 url: https://buffer.com/pricing
+name: Buffer Plans and Pricing
+description: >-
+  Buffer's published plans. API access is included on every tier — there is no
+  separate API or developer plan — and the API entitlement that varies by tier
+  is the number of API keys and app clients plus the monthly request quota.
+  Re-read 2026-08-13 against the live pricing page and the API limits guide;
+  the API-key counts and 24-hour request limits in the previous capture were
+  wrong and have been corrected.
+plan_count: 3
+currency: USD
+unit: per connected social channel, per month
+api_tier: none
+metered_overages: false
 plans:
   - name: Free
-    description: Free plan for individuals getting started with social media scheduling
+    description: Free plan for individuals getting started with social media scheduling.
     price:
       amount: 0
       currency: USD
       period: month
     channels: 3
-    scheduledPosts: 10 per channel
+    scheduled_posts: 10 per channel
     users: 1
-    apiKeys: 1
-    apiRequestsPerMonth: 3000
+    api:
+      keys: 1
+      app_clients: 1
+      requests_per_month: 3000
+      requests_per_24h: 250
+      requests_per_15min: 100
     ideas: 100
-    aiAssistant: true
-    communityInbox: true
-    analytics: Basic only
-    hashtahManager: false
-    approvalWorkflows: false
+    saved_replies: 1
+    ai_reply_suggestions: 5 per week
+    analytics: 30-day history
+    approval_workflows: false
   - name: Essentials
-    description: For individuals who want unlimited scheduling and advanced analytics
+    description: For individuals who want unlimited scheduling and advanced analytics.
     price:
-      amount: 6
+      amount: 5
       currency: USD
       period: month
-      billingNote: Per channel per month; $5/channel/month billed annually
-    channels: Unlimited
-    scheduledPosts: Unlimited
+      billing: annual
+      annual_total_per_channel: 60
+      monthly_billed_monthly: 6
+      note: '$5 per channel per month billed annually; $6 per channel per month billed monthly.'
+    channels: unlimited
+    scheduled_posts: unlimited
     users: 1
-    apiKeys: 5
-    apiRequestsPerMonth: 7500
-    ideas: Unlimited
-    aiAssistant: true
-    communityInbox: true
-    analytics: Advanced
-    hashtagManager: true
-    approvalWorkflows: false
+    api:
+      keys: 3
+      app_clients: 3
+      requests_per_month: 7500
+      requests_per_24h: 250
+      requests_per_15min: 100
+    ideas: unlimited
+    saved_replies: unlimited
+    ai_reply_suggestions: unlimited
+    analytics: advanced
+    approval_workflows: false
     trial: 14-day free trial
   - name: Team
-    description: For teams that need collaboration, approval workflows, and unlimited members
+    description: For teams that need collaboration, approval workflows and unlimited members.
     price:
-      amount: 12
+      amount: 10
       currency: USD
       period: month
-      billingNote: Per channel per month; $10/channel/month billed annually
-    channels: Unlimited
-    scheduledPosts: Unlimited
-    users: Unlimited
-    apiKeys: 5
-    apiRequestsPerMonth: 15000
-    ideas: Unlimited
-    aiAssistant: true
-    communityInbox: true
-    analytics: Advanced
-    hashtagManager: true
-    approvalWorkflows: true
+      billing: annual
+      annual_total_per_channel: 120
+      monthly_billed_monthly: 12
+      note: '$10 per channel per month billed annually; $12 per channel per month billed monthly.'
+    channels: unlimited
+    scheduled_posts: unlimited
+    users: unlimited
+    api:
+      keys: 5
+      app_clients: 5
+      requests_per_month: 15000
+      requests_per_24h: 500
+      requests_per_15min: 100
+    ideas: unlimited
+    saved_replies: unlimited
+    ai_reply_suggestions: unlimited
+    analytics: advanced
+    approval_workflows: true
+    custom_access_permissions: true
     trial: 14-day free trial
+discounts:
+  - {type: annual, percentage: 20, detail: 20% discount versus monthly billing.}
+  - {type: nonprofit, percentage: 50, detail: 50% discount on paid plans.}
 notes:
-  - 20% discount on all paid plans with annual billing
-  - 50% nonprofit discount available
-  - Pricing scales linearly per connected social channel
-  - No separate API tier — API access included on all plans
-  - No metered pricing or overage charges beyond rate limits
+  - Pricing scales linearly per connected social channel.
+  - No separate API tier — API access is included on all plans, Free included.
+  - No metered pricing or overage charges; the ceiling is the rate limit, not a bill.
+  - >-
+    Higher limits are negotiated, not purchased — Buffer directs high-volume
+    integrations to developersupport@buffer.com rather than to a paid tier.
+  - Rate-limit detail lives in rate-limits/buffer-rate-limits.yml.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://buffer.com/pricing', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/api-limits.html', http_status: 200}

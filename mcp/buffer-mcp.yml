@@ -1,0 +1,121 @@
+generated: '2026-08-13'
+method: searched
+status: published
+source: https://developers.buffer.com/guides/integrations/mcp.html
+docs:
+  - https://developers.buffer.com/guides/integrations/mcp.html
+  - https://developers.buffer.com/guides/integrations/claude.html
+  - https://developers.buffer.com/guides/integrations/n8n.html
+  - https://developers.buffer.com/guides/integrations.html
+deployment:
+  mode: remote
+  endpoint: https://mcp.buffer.com/mcp
+  auth: oauth
+  auth_alternatives:
+    - api-key
+  verified: probed
+  note: >-
+    Remote only. Buffer ships no stdio package and no `npx` install for MCP —
+    the MCP surface is a hosted HTTP endpoint an agent POSTs to directly. Two
+    credential paths are documented against the same endpoint: OAuth 2.0
+    (used by the Claude connector — "Connect Buffer to Claude on the web,
+    desktop, or Claude Code using OAuth. No API key needed.") and a static
+    Bearer API key (used by the generic MCP, n8n, Cursor and Raycast setups:
+    `Authorization: Bearer YOUR_API_KEY`). The OAuth path is backed by real
+    RFC 9728 protected-resource metadata at
+    https://mcp.buffer.com/.well-known/oauth-protected-resource, which was
+    fetched (200) and is saved in well-known/.
+server:
+  name: buffer
+  transport: http
+  subtype: streamable-http
+  url: https://mcp.buffer.com/mcp
+  install_claude_code: claude mcp add --transport http buffer https://mcp.buffer.com/mcp
+  authorization_servers:
+    - https://auth.buffer.com
+  scopes_supported:
+    - posts:read
+    - posts:write
+    - ideas:read
+    - ideas:write
+    - account:read
+    - account:write
+    - insights:read
+    - engagements:read
+    - engagements:write
+  bearer_methods_supported: [header]
+tools:
+  status: gated
+  note: >-
+    NOT FABRICATED. An anonymous POST of {"jsonrpc":"2.0","id":1,
+    "method":"tools/list"} to https://mcp.buffer.com/mcp returns HTTP 401
+    {"error":"Authorization header is required","httpCode":401}, so the live
+    tool list with real inputSchemas requires an authenticated introspection.
+    Buffer publishes no tool list in its docs or llms.txt either. The tools
+    below are therefore NOT recorded as the server's tool set — they are the
+    operations the server can plausibly expose, taken from the published
+    GraphQL contract and the first-party CLI's command surface, and every row
+    is marked candidate. Do not treat these as Buffer's published tool names.
+  probe:
+    url: https://mcp.buffer.com/mcp
+    method: POST
+    http_status: 401
+    body: '{"error":"Authorization header is required","httpCode":401}'
+    fetched: '2026-08-13'
+candidate_tools:
+  - name: get_account
+    description: Retrieve the authenticated user's account, organizations and timezone.
+    source_operation: graphql/buffer-schema.graphql#Query.account
+    status: candidate
+  - name: list_channels
+    description: List the connected social channels for an organization.
+    source_operation: graphql/buffer-schema.graphql#Query.channels
+    status: candidate
+  - name: get_channel
+    description: Fetch a single channel, including per-service metadata and posting schedule.
+    source_operation: graphql/buffer-schema.graphql#Query.channel
+    status: candidate
+  - name: list_posts
+    description: Fetch a paginated list of posts for an organization, with status/tag/date filters.
+    source_operation: graphql/buffer-schema.graphql#Query.posts
+    status: candidate
+  - name: get_post
+    description: Fetch a single post by id, optionally with metrics.
+    source_operation: graphql/buffer-schema.graphql#Query.post
+    status: candidate
+  - name: get_daily_posting_limits
+    description: Return the daily posting limit status for a set of channels on a date.
+    source_operation: graphql/buffer-schema.graphql#Query.dailyPostingLimits
+    status: candidate
+  - name: get_aggregated_post_metrics
+    description: Aggregate normalized post metrics across a filtered post set and window.
+    source_operation: graphql/buffer-schema.graphql#Query.aggregatedPostMetrics
+    status: candidate
+  - name: create_post
+    description: Create a post (queued, scheduled, share-now or draft) on a channel.
+    source_operation: graphql/buffer-schema.graphql#Mutation.createPost
+    status: candidate
+  - name: edit_post
+    description: Edit an existing post.
+    source_operation: graphql/buffer-schema.graphql#Mutation.editPost
+    status: candidate
+  - name: delete_post
+    description: Delete a post by id.
+    source_operation: graphql/buffer-schema.graphql#Mutation.deletePost
+    status: candidate
+  - name: create_idea
+    description: Create a content idea for an organization.
+    source_operation: graphql/buffer-schema.graphql#Mutation.createIdea
+    status: candidate
+evidence:
+  - {fetched: '2026-08-13', url: 'https://mcp.buffer.com/mcp', http_status: 401, kind: mcp-tools-list-gated}
+  - {fetched: '2026-08-13', url: 'https://mcp.buffer.com/.well-known/oauth-protected-resource', http_status: 200, kind: rfc9728}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/integrations/mcp.html', http_status: 200, kind: docs}
+related:
+  - >-
+    Buffer's own GraphQL schema now models MCP as a first-class connected-app
+    category: the 2026-07-28 changelog entry adds `ConnectedAppCategory` with
+    an `mcp` enum value and `ConnectedApp.category`.
+  - >-
+    "Buffer MCP - API" is listed as Released on the public API roadmap at
+    https://developers.buffer.com/roadmap.html.

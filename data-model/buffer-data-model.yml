@@ -1,0 +1,284 @@
+generated: '2026-08-13'
+method: derived
+source: graphql/buffer-schema.graphql
+name: Buffer Data Model
+description: >-
+  Entity-relationship graph for the Buffer GraphQL API, derived from the
+  introspected SDL at graphql/buffer-schema.graphql. Buffer has no OpenAPI, so
+  relationships are read from GraphQL object field types and id-reference
+  scalars (OrganizationId, ChannelId, PostId, IdeaId, TagId, NoteId, AccountId)
+  rather than from JSON Schema $ref links.
+api: Buffer GraphQL API
+endpoint: https://api.buffer.com/graphql
+id_convention:
+  format: MongoDB ObjectId
+  note: >-
+    Buffer models each entity id as a dedicated custom scalar whose description
+    states it is the MongoDB ObjectId of that entity. There are no typed id
+    prefixes (no cus_/acct_ style), so an id is only interpretable through the
+    scalar type that carries it.
+  scalars:
+    - AccountId
+    - ChannelId
+    - DraftId
+    - IdeaId
+    - InvitationId
+    - NoteId
+    - OrganizationId
+    - PostGroupId
+    - PostId
+    - TagId
+    - Uuid
+entities:
+  - name: Account
+    kind: object
+    description: A Buffer user. Root of the authenticated session (Query.account).
+    key: id (ID)
+    fields_of_note: [email, backupEmail, avatar, timezone, name, createdAt]
+  - name: Organization
+    kind: object
+    description: A Buffer organization; owns channels, posts, ideas and tags.
+    key: id (OrganizationId)
+    fields_of_note: [name, ownerEmail, channelCount, shouldEnforce2FASetup]
+  - name: OrganizationLimits
+    kind: object
+    description: Per-organization resource ceilings (channels, members, scheduledPosts, tags, ideas, savedReplies).
+    key: null
+  - name: MemberConnection
+    kind: object
+    description: Member rollup for an organization (totalCount only today).
+    key: null
+  - name: Channel
+    kind: object
+    description: A connected social media account/page/profile on one of the supported services.
+    key: id (ChannelId)
+    fields_of_note: [service, type, serviceId, name, displayName, isLocked, isDisconnected, isQueuePaused, timezone, scopes]
+  - name: ChannelLinkShortening
+    kind: object
+    description: Link-shortening configuration for a channel (buff.ly, dub.co, custom domain).
+    key: null
+  - name: PostingGoal
+    kind: object
+    description: Target/progress/status for a channel's posting goal over a period.
+    key: null
+  - name: ScheduleV2
+    kind: object
+    description: Posting slots for one day of the week on a channel.
+    key: null
+  - name: Post
+    kind: object
+    description: A scheduled, sending, sent, draft or errored post bound to one channel.
+    key: id (PostId)
+    fields_of_note: [status, via, schedulingType, shareMode, dueAt, sentAt, text, externalLink, isCustomScheduled]
+  - name: PostMetric
+    kind: object
+    description: One normalized engagement metric on a post or in an aggregate.
+    key: null
+    fields_of_note: [type, name, description, value, unit]
+  - name: AggregatedPostMetrics
+    kind: object
+    description: Aggregated metrics across a filtered post set, plus metricsUpdatedAt freshness.
+    key: null
+  - name: PostPublishingError
+    kind: object
+    description: Publishing failure attached to a post (message + supportUrl).
+    key: null
+  - name: Idea
+    kind: object
+    description: A content idea in the Buffer create space, optionally promoted into a Post.
+    key: id (ID)
+    fields_of_note: [organizationId, groupId, position, createdAt, updatedAt]
+  - name: IdeaContent
+    kind: object
+    description: Title/text/media/tags/services payload of an idea.
+    key: null
+  - name: IdeaMedia
+    kind: object
+    description: Media item attached to an idea, with its source platform.
+    key: id (ID)
+  - name: Tag
+    kind: object
+    description: A colored label applied to posts.
+    key: id (TagId)
+  - name: PublishingTag
+    kind: object
+    description: Tag shape carried on idea content (id/color/name).
+    key: id (ID)
+  - name: Note
+    kind: object
+    description: A user, Buffer-generated or AI-generated note attached to a post.
+    key: id (NoteId)
+  - name: Author
+    kind: object
+    description: The account that authored a post or note.
+    key: id (AccountId)
+  - name: Asset
+    kind: interface
+    description: Media attached to a post or threaded post.
+    implementations: [ImageAsset, VideoAsset, DocumentAsset]
+  - name: ThreadedPost
+    kind: object
+    description: One reply in a threaded post (Twitter, Threads, Mastodon, Bluesky).
+    key: null
+  - name: ConnectedApp
+    kind: object
+    description: An OAuth client the account has granted access to.
+    key: clientId (ID)
+  - name: DailyPostingLimitStatus
+    kind: object
+    description: Per-channel daily posting limit status for a date.
+    key: null
+  - name: PostsResults
+    kind: object
+    description: Relay-style connection wrapper for the posts query (edges + pageInfo).
+    key: null
+relationships:
+  - from: Account
+    to: Organization
+    type: has_many
+    via: organizations
+  - from: Account
+    to: ConnectedApp
+    type: has_many
+    via: connectedApps
+  - from: Account
+    to: Preferences
+    type: has_one
+    via: preferences
+  - from: Organization
+    to: OrganizationLimits
+    type: has_one
+    via: limits
+  - from: Organization
+    to: MemberConnection
+    type: has_one
+    via: members
+  - from: Channel
+    to: Organization
+    type: belongs_to
+    via: organizationId
+  - from: Channel
+    to: ScheduleV2
+    type: has_many
+    via: postingSchedule
+  - from: Channel
+    to: ChannelMetadata
+    type: has_one
+    via: metadata
+    note: Union of the eleven per-service metadata types.
+  - from: Channel
+    to: PostingGoal
+    type: has_one
+    via: postingGoal
+  - from: Channel
+    to: ChannelLinkShortening
+    type: has_one
+    via: linkShortening
+  - from: Post
+    to: Channel
+    type: belongs_to
+    via: channelId
+    note: Post also exposes a resolved `channel` object and a denormalized `channelService`.
+  - from: Post
+    to: Idea
+    type: belongs_to
+    via: ideaId
+    note: Set only when the post was generated from an idea.
+  - from: Post
+    to: Author
+    type: has_one
+    via: author
+  - from: Post
+    to: Tag
+    type: has_many
+    via: tags
+  - from: Post
+    to: Note
+    type: has_many
+    via: notes
+  - from: Post
+    to: Asset
+    type: has_many
+    via: assets
+  - from: Post
+    to: PostMetric
+    type: has_many
+    via: metrics
+  - from: Post
+    to: PostMetadata
+    type: has_one
+    via: metadata
+    note: Union of the eleven per-service post metadata types.
+  - from: Post
+    to: PostPublishingError
+    type: has_one
+    via: error
+  - from: PostsResults
+    to: Post
+    type: has_many
+    via: edges.node
+  - from: Idea
+    to: Organization
+    type: belongs_to
+    via: organizationId
+  - from: Idea
+    to: IdeaContent
+    type: has_one
+    via: content
+  - from: IdeaContent
+    to: IdeaMedia
+    type: has_many
+    via: media
+  - from: IdeaContent
+    to: PublishingTag
+    type: has_many
+    via: tags
+  - from: IdeaMedia
+    to: IdeaMediaSource
+    type: has_one
+    via: source
+  - from: Note
+    to: Author
+    type: has_one
+    via: author
+  - from: ThreadedPost
+    to: Asset
+    type: has_many
+    via: assets
+  - from: AggregatedPostMetrics
+    to: PostMetric
+    type: has_many
+    via: metrics
+polymorphism:
+  unions:
+    - name: ChannelMetadata
+      members: [InstagramMetadata, TiktokMetadata, YoutubeMetadata, PinterestMetadata, MastodonMetadata, BlueskyMetadata, GoogleBusinessMetadata, FacebookMetadata, TwitterMetadata, LinkedInMetadata]
+    - name: PostMetadata
+      members: [InstagramPostMetadata, FacebookPostMetadata, LinkedInPostMetadata, TwitterPostMetadata, PinterestPostMetadata, GoogleBusinessPostMetadata, YoutubePostMetadata, MastodonPostMetadata, TiktokPostMetadata, ThreadsPostMetadata, BlueskyPostMetadata]
+    - name: PostActionPayload
+      members: [PostActionSuccess, NotFoundError, UnauthorizedError, UnexpectedError, RestProxyError, LimitReachedError, InvalidInputError]
+    - name: CreateIdeaPayload
+      members: [Idea, IdeaResponse, InvalidInputError, UnauthorizedError, UnexpectedError, LimitReachedError]
+    - name: DeletePostPayload
+      members: [DeletePostSuccess, VoidMutationError]
+    - name: GoogleBusinessPostDetails
+      members: [GoogleBusinessWhatsNewMetaData, GoogleBusinessOfferMetaData, GoogleBusinessEventMetaData]
+  interfaces:
+    - name: Asset
+      implementations: [ImageAsset, VideoAsset, DocumentAsset]
+    - name: CommonPostMetadata
+      implementations: [InstagramPostMetadata, FacebookPostMetadata, LinkedInPostMetadata, TwitterPostMetadata, PinterestPostMetadata, GoogleBusinessPostMetadata, YoutubePostMetadata, MastodonPostMetadata, TiktokPostMetadata, ThreadsPostMetadata, BlueskyPostMetadata]
+    - name: ThreadedPostMetadata
+      implementations: [TwitterPostMetadata, ThreadsPostMetadata, MastodonPostMetadata, BlueskyPostMetadata]
+    - name: MutationError
+      implementations: [InvalidInputError, LimitReachedError, NotFoundError, RestProxyError, UnauthorizedError, UnexpectedError, VoidMutationError]
+    - name: ScrapedLink
+      implementations: [LinkAttachment, RetweetMetadata]
+notes:
+  - >-
+    There is no `render` in this repo — no subway/ diagram exists for Buffer.
+  - >-
+    Every entity is scoped to an Organization. Channel, Post and Idea all carry
+    an organizationId either directly or through their parent, and the posts /
+    channels / aggregatedPostMetrics queries all require organizationId as
+    input, so organization is the effective tenancy boundary of the API.

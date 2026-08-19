@@ -1,0 +1,117 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/cli.html
+docs: https://developers.buffer.com/guides/cli.html
+name: Buffer CLI
+binary: buffer
+package: packages/buffer-packages.yml
+registry_url: https://www.npmjs.com/package/@bufferapp/cli
+version: 1.2.0
+published: '2026-07-13'
+official: true
+positioning: >-
+  "Schedule posts, manage channels, and access account data directly from your
+  terminal. Built for developers and AI agents." Every command is generated
+  from Buffer's public GraphQL schema, with structured JSON output and
+  predictable error handling. This is the closest thing Buffer ships to an SDK
+  — there is no conventional server-side client library.
+install:
+  - method: npm
+    command: npm install -g @bufferapp/cli
+    requires: Node.js 18 or later
+    verify: buffer --version
+setup:
+  - command: buffer init
+    description: >-
+      Interactive setup. Writes the API token, default organization and
+      timezone to global config, and offers to install a Buffer skill into
+      Claude Code or Codex.
+  - command: buffer doctor
+    description: >-
+      Checks Node version, config validity, API token, default organization,
+      network reachability, rate-limit headroom and CLI version freshness.
+      --verbose includes passing checks.
+  - env: BUFFER_API_KEY
+    description: >-
+      Token via environment instead of on disk, for CI, containers and
+      ephemeral environments.
+command_shape: 'buffer <group> <command> [flags]'
+commands:
+  - group: account
+    commands:
+      - {command: 'buffer account', description: Fetch the authenticated account.}
+  - group: channels
+    commands:
+      - {command: 'buffer channels list', description: List connected channels for an organization.}
+      - {command: 'buffer channels get --id <channel-id>', description: Fetch one channel with metadata and posting schedule.}
+  - group: posts
+    commands:
+      - {command: 'buffer posts list --channel-id <id>', description: List posts, Relay-paginated.}
+      - {command: 'buffer posts get --id <post-id>', description: Fetch one post.}
+      - {command: 'buffer posts create', description: 'Create a post from flags, --json, --input <file> or stdin.'}
+      - {command: 'buffer posts delete --id <post-id>', description: Delete a post.}
+  - group: ideas
+    commands:
+      - {command: 'buffer ideas create', description: Create an idea from flags or --json.}
+  - group: ideaGroups
+    commands:
+      - {command: 'buffer ideaGroups list --organization-id <id>', description: 'List idea folders. Plain list, not a Relay connection.'}
+  - group: limits
+    commands:
+      - {command: 'buffer dailyPostingLimits list --channel-ids <ids> --date <date>', description: Daily posting limit status. All channels must share one organization.}
+  - group: metrics
+    commands:
+      - {command: 'buffer aggregatedPostMetrics --json <payload>', description: Aggregate normalized post metrics over a window.}
+  - group: schema
+    commands:
+      - {command: 'buffer schema list', description: All commands plus descriptions.}
+      - {command: 'buffer schema describe <group> <command>', description: 'Full method signature as JSON — input types, output shape, required fields, enum values, jsonInputSchema, defaultFields, selectableFields.'}
+  - group: config
+    commands:
+      - {command: 'buffer config get --all', description: 'Resolved config with the source layer per entry (env | repo | global | default).'}
+      - {command: 'buffer config set <key> <value>', description: Write config; --repo for repo scope.}
+      - {command: 'buffer config unset <key>', description: Remove a key. Idempotent.}
+      - {command: 'buffer config path', description: Print config file paths.}
+  - group: agent
+    commands:
+      - {command: 'buffer context', description: Print all agent skill topics as concatenated markdown.}
+      - {command: 'buffer context --list', description: List available skill topics.}
+      - {command: 'buffer install claude', description: 'Writes ~/.claude/skills/buffer/SKILL.md. Idempotent. No API call, no auth.'}
+      - {command: 'buffer install codex', description: Appends a managed block to ~/.codex/AGENTS.md. Idempotent.}
+      - {command: 'buffer uninstall <agent>', description: Reverse the install.}
+  - group: shell
+    commands:
+      - {command: 'buffer completion bash|zsh|fish --install', description: Install shell completion. Idempotent.}
+global_flags:
+  - {flag: '--output <json|pretty|auto>', purpose: 'Rendering. auto pretty-prints to a TTY, JSON otherwise. Use json for scripts and agents.'}
+  - {flag: '--json <payload>', purpose: 'Pass the whole input as JSON. Overrides flags entirely when both are given.'}
+  - {flag: '--input <file|->', purpose: Read input from a file or stdin.}
+  - {flag: '--fields <paths>', purpose: 'Dot-notation field selection with brace expansion, rendered into the GraphQL request itself. --fields all opts into the full response.'}
+  - {flag: '--dry-run', purpose: 'Validate locally and print the payload that would be sent. Mutations only. No API call, does not count against rate limits.'}
+  - {flag: '--quiet', purpose: 'Suppress spinners, completion lines, update notices and rate-limit warnings on stderr.'}
+  - {flag: '--verbose', purpose: Print a one-line rate-limit summary to stderr after every request.}
+  - {flag: '--no-color', purpose: Disable ANSI colors.}
+  - {flag: '--timeout <ms>', purpose: 'Per-command timeout, default 30000ms. 0 disables.'}
+exit_codes:
+  - {code: 0, meaning: Success}
+  - {code: 1, meaning: General error}
+  - {code: 2, meaning: 'Usage error (bad flags, missing fields, validation failure)'}
+  - {code: 3, meaning: 'API error, including 429'}
+  - {code: 4, meaning: 'Auth error (missing or invalid token)'}
+  - {code: 130, meaning: Interrupted by SIGINT}
+  - {code: 143, meaning: Terminated by SIGTERM}
+  - {code: 0, meaning: 'EPIPE on stdout (consumer closed the pipe) exits 0 silently.', special: true}
+configuration:
+  - {scope: global, path: '$XDG_CONFIG_HOME/buffer/config.json (or ~/.config/buffer/config.json)', note: 'User-level defaults. The only place apiKey can be stored.'}
+  - {scope: repo, path: '.buffer/config.json (walking up from cwd)', note: 'Project-level overrides. apiKey is stripped on load.'}
+resolution_order: 'command flag -> environment (BUFFER_API_KEY) -> repo config -> global config -> built-in default'
+agent_features:
+  - Structured JSON on stdout; structured JSON errors on stderr.
+  - Runtime schema introspection so an agent never has to guess a command shape.
+  - --dry-run on every mutation as the safe validation path.
+  - Rate-limit headers parsed on every command, with low-headroom warnings and a 429 report naming the exhausted window.
+  - Ships six markdown agent skill files, installable into Claude Code and Codex.
+skills: skills/_index.yml
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/cli.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://registry.npmjs.org/@bufferapp/cli', http_status: 200}

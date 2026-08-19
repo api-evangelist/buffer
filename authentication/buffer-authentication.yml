@@ -1,0 +1,114 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/authentication.html
+docs: https://developers.buffer.com/guides/authentication.html
+note: >-
+  Derived-from-OpenAPI is not possible for Buffer — there is no OpenAPI. This
+  profile is read from Buffer's own authentication guide and corroborated
+  against the live OAuth/OIDC discovery documents saved in well-known/.
+api: Buffer GraphQL API
+endpoint: https://api.buffer.com
+summary:
+  types: [http, oauth2, openIdConnect]
+  http_schemes: [bearer]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+  pkce_required: true
+  dynamic_client_registration: true
+schemes:
+  - name: PersonalApiKey
+    type: http
+    scheme: bearer
+    in: header
+    parameter: Authorization
+    format: 'Authorization: Bearer <API_KEY>'
+    issued_at: https://publish.buffer.com/settings/api
+    scope_model: none
+    description: >-
+      Personal API key. Acts on behalf of the issuing account only, and reaches
+      every organization and channel that account can see — Buffer states
+      plainly "There is no per-organization scoping at this time" and "The key
+      is account-based, not organization-based". A request without a valid key
+      returns 401 Unauthorized. This is the credential used by the CLI
+      (BUFFER_API_KEY), by the generic MCP setup, and by the n8n, Cursor and
+      Raycast integration guides.
+    source: https://developers.buffer.com/guides/authentication.html
+  - name: OAuth2AuthorizationCodePKCE
+    type: oauth2
+    flow: authorizationCode
+    pkce: required
+    code_challenge_methods: [S256]
+    authorization_url: https://auth.buffer.com/auth
+    token_url: https://auth.buffer.com/token
+    registration_endpoint: https://auth.buffer.com/reg
+    pushed_authorization_request_endpoint: https://auth.buffer.com/request
+    introspection_endpoint: https://auth.buffer.com/token/introspection
+    userinfo_endpoint: https://auth.buffer.com/me
+    end_session_endpoint: https://auth.buffer.com/session/end
+    jwks_uri: https://auth.buffer.com/jwks
+    issuer: https://auth.buffer.com
+    grant_types: [authorization_code, refresh_token, client_credentials]
+    token_type: Bearer
+    access_token_lifetime_seconds: 3600
+    refresh_tokens: rotating
+    client_types:
+      - kind: confidential
+        credentials: [client_id, client_secret]
+        note: Sends client_secret AND code_verifier.
+      - kind: public
+        credentials: [client_id]
+        note: >-
+          Mobile, desktop and single-page apps. Authenticate with the
+          code_verifier alone and must NOT send a client_secret. The discovery
+          document advertises token_endpoint_auth_methods_supported "none".
+    description: >-
+      Authorization Code flow with PKCE, required for all Buffer OAuth clients.
+      Used by the Claude connector against the MCP server ("No API key needed").
+    source: https://developers.buffer.com/guides/authentication.html
+  - name: OpenIDConnect
+    type: openIdConnect
+    openIdConnectUrl: https://auth.buffer.com/.well-known/openid-configuration
+    id_token_signing_alg_values_supported: [PS256, RS256]
+    claims_supported: [sub, sid, auth_time, iss]
+    subject_types_supported: [public]
+    response_modes_supported: [form_post, fragment, query]
+    description: >-
+      auth.buffer.com is a full OIDC provider. Note that Buffer's own
+      authentication guide does not mention OIDC at all — this was found only
+      by probing the discovery endpoint, which is why the artifact records it
+      separately rather than folding it into the OAuth entry.
+    source: well-known/buffer-openid-configuration.json
+token_rotation:
+  refresh_token_single_use: true
+  detail: >-
+    Buffer's guide carries an explicit warning: "Refresh tokens are single-use.
+    Every successful refresh returns a new refresh_token and invalidates the
+    one you sent... Reusing an old refresh token revokes all tokens for that
+    grant" — the user must then re-authorize. Agents holding Buffer tokens must
+    persist the newest refresh token atomically.
+revocation:
+  user_initiated: true
+  detail: >-
+    Users can revoke an app from Buffer account settings at any time; all
+    tokens for that app are invalidated and the API returns 401 Unauthorized.
+  connected_apps_query: Account.connectedApps in the GraphQL schema surfaces the granted clients.
+errors:
+  authorization_redirect:
+    - {error: access_denied, meaning: The user denied your app.}
+    - {error: invalid_request, meaning: The request is missing or has invalid parameters.}
+    - {error: invalid_client, meaning: The client_id is not recognized.}
+    - {error: invalid_grant, meaning: The code is expired, already used, or invalid.}
+    - {error: invalid_scope, meaning: The requested scope is not valid.}
+  token_exchange_shape: '{"error": "invalid_grant", "error_description": "Authorization code has expired"}'
+  api_unauthenticated: '{"errors":[{"message":"An authentication JWT or Access Token is required","extensions":{"code":"UNAUTHENTICATED"}}]}'
+security_guidance_published:
+  - Never commit the API key to version control.
+  - Do not expose it in client-side code; call from a server.
+  - Store it in an environment variable such as BUFFER_API_KEY.
+  - Rotate the key from Settings -> API if compromised.
+scopes: scopes/buffer-scopes.yml
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/authentication.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://auth.buffer.com/.well-known/openid-configuration', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://auth.buffer.com/.well-known/oauth-authorization-server', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://api.buffer.com', http_status: 401, note: anonymous GraphQL POST returns UNAUTHENTICATED}

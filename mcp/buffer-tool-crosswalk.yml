@@ -1,0 +1,170 @@
+generated: '2026-08-13'
+method: derived
+source: graphql/buffer-schema.graphql + graphql/buffer-api-reference.md + cli/buffer-cli.yml
+note: >-
+  Buffer publishes NO OpenAPI, so this crosswalk binds the agent-facing
+  surfaces to GraphQL fields rather than to REST operationIds. Three surfaces
+  are in play: the GraphQL API at https://api.buffer.com (the machine-readable
+  core), the hosted MCP server at https://mcp.buffer.com/mcp, and the
+  first-party CLI (@bufferapp/cli), which is itself generated from the public
+  GraphQL schema and is therefore a faithful projection of it. The MCP tool
+  names are AUTH-GATED — an anonymous tools/list returns 401 — so every MCP
+  row below carries confidence: low and the tool name is the candidate name
+  from mcp/buffer-mcp.yml, not a published Buffer tool name. The CLI rows are
+  confidence: high because the command surface is documented verbatim at
+  https://developers.buffer.com/guides/cli.html and shipped in the package.
+surfaces:
+  openapi:
+    present: false
+    note: Buffer publishes no OpenAPI or Swagger document on any host.
+  graphql:
+    endpoint: https://api.buffer.com
+    also_reachable_at: https://api.buffer.com/graphql
+    introspection: gated
+    introspection_note: >-
+      POST {"query":"{__typename}"} returns 401 UNAUTHENTICATED. The schema in
+      graphql/buffer-schema.graphql was captured earlier; the current operation
+      set is confirmed against the provider's own published reference saved
+      verbatim at graphql/buffer-api-reference.md (fetched 2026-08-13).
+    local_sdl: graphql/buffer-schema.graphql
+    local_reference: graphql/buffer-api-reference.md
+  mcp:
+    endpoint: https://mcp.buffer.com/mcp
+    transport: streamable-http
+    tools_list: gated
+    tools_list_note: 'HTTP 401 {"error":"Authorization header is required"} on anonymous tools/list.'
+  cli:
+    package: "@bufferapp/cli"
+    version: 1.2.0
+    generated_from: the public Buffer GraphQL schema
+crosswalk:
+  - tool: get_account
+    category: account
+    graphql: [Query.account]
+    cli: [buffer account]
+    binding: graphql
+    confidence: low
+    note: MCP tool name is a candidate; CLI binding is confirmed from the published CLI guide.
+  - tool: list_channels
+    category: channels
+    graphql: [Query.channels]
+    cli: [buffer channels list]
+    binding: graphql
+    confidence: low
+  - tool: get_channel
+    category: channels
+    graphql: [Query.channel]
+    cli: [buffer channels get]
+    binding: graphql
+    confidence: low
+  - tool: list_posts
+    category: posts
+    graphql: [Query.posts]
+    cli: [buffer posts list]
+    binding: graphql
+    confidence: low
+  - tool: get_post
+    category: posts
+    graphql: [Query.post]
+    cli: [buffer posts get]
+    binding: graphql
+    confidence: low
+  - tool: create_post
+    category: posts
+    graphql: [Mutation.createPost]
+    cli: [buffer posts create]
+    binding: graphql
+    confidence: low
+    note: >-
+      Non-idempotent — a retry creates a duplicate post. See
+      skills/buffer-idempotency.md (Buffer's own text).
+  - tool: edit_post
+    category: posts
+    graphql: [Mutation.editPost]
+    cli: [buffer posts edit]
+    binding: graphql
+    confidence: low
+  - tool: delete_post
+    category: posts
+    graphql: [Mutation.deletePost]
+    cli: [buffer posts delete]
+    binding: graphql
+    confidence: low
+  - tool: create_idea
+    category: ideas
+    graphql: [Mutation.createIdea]
+    cli: [buffer ideas create]
+    binding: graphql
+    confidence: low
+  - tool: get_daily_posting_limits
+    category: limits
+    graphql: [Query.dailyPostingLimits]
+    cli: [buffer dailyPostingLimits list]
+    binding: graphql
+    confidence: low
+  - tool: get_aggregated_post_metrics
+    category: metrics
+    graphql: [Query.aggregatedPostMetrics]
+    cli: [buffer aggregatedPostMetrics]
+    binding: graphql
+    confidence: low
+mcp_only: []
+mcp_only_note: >-
+  Cannot be determined without an authenticated tools/list. Recorded as an
+  explicit unknown rather than an empty finding.
+graphql_only:
+  - field: Query.ideas
+    reason: >-
+      Paginated ideas listing. Marked Beta on the public roadmap ("Query
+      'Ideas'"). Present in the published reference; no CLI list command is
+      documented and no MCP tool can be confirmed.
+  - field: Query.ideaGroups
+    reason: >-
+      Idea folders. Reachable from the CLI (`buffer ideaGroups list`, documented
+      in Buffer's own workflows skill) but absent from the SDL snapshot in this
+      repo; added in the 2026-06-25 changelog entry.
+  - field: Query.postTemplate
+    reason: Post templates, marked Preview in the published reference.
+  - field: Query.postTemplates
+    reason: Post templates, marked Preview in the published reference.
+  - field: Mutation.createPostTemplate
+    reason: Preview.
+  - field: Mutation.updatePostTemplate
+    reason: Preview.
+  - field: Mutation.deletePostTemplate
+    reason: Preview.
+  - field: Mutation.movePostInQueue
+    reason: >-
+      Experimental. Scheduling-only queue reorder that never re-validates post
+      content; added 2026-07-02.
+cli_only:
+  - command: buffer schema list
+    reason: Local schema discovery; no API call.
+  - command: buffer schema describe
+    reason: >-
+      Returns the full JSON Schema for a command's --json payload. This is the
+      closest thing Buffer ships to a machine-readable request contract outside
+      GraphQL introspection, and it is local to the CLI.
+  - command: buffer config get/set/unset
+    reason: Local configuration; no API call.
+  - command: buffer doctor
+    reason: Local environment diagnostics plus a reachability check.
+  - command: buffer context / buffer install / buffer uninstall
+    reason: >-
+      Prints and installs Buffer's own agent skill files (saved verbatim in
+      skills/). No API call, no auth required.
+  - command: --dry-run on every mutation
+    reason: >-
+      Validates a payload locally and prints what would be sent, without
+      calling the API. Buffer's only dry-run surface.
+coverage:
+  graphql_queries_total: 10
+  graphql_mutations_total: 8
+  graphql_fields_mapped_to_a_candidate_tool: 11
+  mcp_tools_named_by_provider: 0
+  mcp_tools_bound: 0
+  cli_commands_bound: 11
+  note: >-
+    Query/mutation totals are counted from the provider's published reference
+    (graphql/buffer-api-reference.md, fetched 2026-08-13), which is newer than
+    the SDL snapshot in graphql/buffer-schema.graphql.

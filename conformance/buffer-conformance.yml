@@ -1,0 +1,155 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://auth.buffer.com/.well-known/openid-configuration +
+  https://mcp.buffer.com/.well-known/oauth-protected-resource +
+  https://developers.buffer.com/guides/
+note: >-
+  Asserted from live discovery documents and Buffer's own published guides.
+  Every `conforms: true` below carries the artifact or URL it was read from.
+  Absences are recorded as conforms: false rather than omitted, so the shape of
+  what Buffer does NOT implement is legible.
+standards:
+  - id: graphql
+    conforms: true
+    evidence: 'Single GraphQL endpoint at https://api.buffer.com; SDL in graphql/buffer-schema.graphql; published reference in graphql/buffer-api-reference.md.'
+  - id: relay-cursor-connections
+    conforms: true
+    evidence: 'PostsResults/PostsEdge/PaginationPageInfo with startCursor/endCursor/hasNextPage; first + after arguments. Forward-only — hasPreviousPage is documented as always false.'
+  - id: oauth2
+    conforms: true
+    evidence: 'authorizationCode flow at https://auth.buffer.com/auth, token endpoint https://auth.buffer.com/token; well-known/buffer-oauth-authorization-server.json'
+  - id: rfc7636-pkce
+    conforms: true
+    evidence: 'code_challenge_methods_supported: [S256]; Buffer states PKCE is required for all OAuth clients, and public clients authenticate with the code_verifier alone.'
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: 'HTTP 200 at https://auth.buffer.com/.well-known/oauth-authorization-server (saved verbatim in well-known/).'
+  - id: rfc9728-oauth-protected-resource-metadata
+    conforms: true
+    evidence: 'HTTP 200 at https://mcp.buffer.com/.well-known/oauth-protected-resource declaring resource, authorization_servers and scopes_supported.'
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: 'registration_endpoint https://auth.buffer.com/reg advertised in both discovery documents.'
+  - id: rfc9126-pushed-authorization-requests
+    conforms: true
+    evidence: 'pushed_authorization_request_endpoint https://auth.buffer.com/request in the OIDC discovery document.'
+  - id: rfc7662-token-introspection
+    conforms: true
+    evidence: 'introspection_endpoint https://auth.buffer.com/token/introspection.'
+  - id: oidc-discovery
+    conforms: true
+    evidence: 'HTTP 200 at https://auth.buffer.com/.well-known/openid-configuration with jwks_uri, userinfo_endpoint, end_session_endpoint, id_token signing PS256/RS256.'
+  - id: oidc-core
+    conforms: partial
+    evidence: >-
+      The authorization server is a full OIDC provider (openid scope,
+      id_token algs, claims_supported sub/sid/auth_time/iss), but Buffer's own
+      authentication guide never mentions OIDC — it documents only the OAuth
+      2.0 authorization-code path. Capability is present; documentation is not.
+  - id: refresh-token-rotation
+    conforms: true
+    evidence: >-
+      Published contract: refresh tokens are single-use, every refresh returns
+      a new one, and reusing an old refresh token revokes all tokens for that
+      grant.
+  - id: mcp
+    conforms: true
+    version: streamable HTTP transport
+    evidence: 'Hosted server at https://mcp.buffer.com/mcp; documented Claude Code install `claude mcp add --transport http`; n8n guide specifies "Server Transport: HTTP Streamable". OAuth-protected per RFC 9728.'
+  - id: ratelimit-header-fields
+    conforms: true
+    evidence: >-
+      Emits IETF RateLimit and RateLimit-Policy structured-field headers, one
+      policy per window, with q/w/pk on the policy and r/t on the status, plus
+      Retry-After on 429. Legacy X-RateLimit-* is also parsed by the CLI as a
+      fallback.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'GraphQL typed errors and an errors[] array with extensions.code; no application/problem+json anywhere.'
+  - id: openapi
+    conforms: false
+    evidence: 'No OpenAPI or Swagger document served on any Buffer host. /openapi.json, /swagger.json, /api-docs and /openapi.yaml were probed on api.buffer.com (401 gateway catch-all) and developers.buffer.com (404).'
+  - id: asyncapi
+    conforms: false
+    evidence: 'No event, streaming or webhook surface exists — see the note in this file under event_surface.'
+  - id: idempotency
+    conforms: false
+    evidence: >-
+      Stated absent by the provider: "There is no idempotency-key mechanism in
+      the API today" (skills/buffer-idempotency.md, shipped by Buffer).
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: 'Deprecation is communicated via GraphQL @deprecated(reason:) and the dated changelog; no Sunset or Deprecation HTTP headers.'
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: '404 on /.well-known/security.txt at buffer.com and developers.buffer.com, despite a real disclosure program at https://buffer.com/security.'
+  - id: a2a
+    conforms: false
+    evidence: 'No agent card at /.well-known/agent-card.json or /.well-known/agent.json on any host. publish.buffer.com answers 200 with an HTML SPA shell, which is a soft-200, not a card.'
+  - id: llms-txt
+    conforms: true
+    evidence: 'HTTP 200 at https://developers.buffer.com/llms.txt, saved verbatim to llms/buffer-llms.txt. Well-formed: H1, blockquote summary, endpoint + auth line, then Guides / Examples / API Reference link sections.'
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      Published GDPR section on https://buffer.com/security covering deletion,
+      access/portability, modification, a Data Protection Agreement, a
+      sub-processor list and a dispute-resolution process.
+  - id: eu-us-data-privacy-framework
+    conforms: true
+    evidence: >-
+      Published "Data Privacy Frameworks Policy (DPFs Policy)" covering
+      personal information received from the EEA, UK and Switzerland, with
+      notice, purpose limitation, onward transfers, choice, access, and
+      recourse/enforcement sections.
+  - id: ccpa
+    conforms: true
+    evidence: 'Published California Resident Privacy Notice and "Your California Privacy Rights" section.'
+  - id: soc2
+    conforms: false
+    evidence: 'No SOC 2 claim found anywhere on buffer.com. No trust center exists at trust.buffer.com or /trust (both 404 or absent).'
+  - id: iso27001
+    conforms: false
+    evidence: 'No ISO 27001 claim found on any Buffer page.'
+  - id: pci-dss
+    conforms: false
+    evidence: 'Not applicable — Buffer is not a payments provider and makes no PCI claim.'
+  - id: hipaa
+    conforms: false
+    evidence: Not applicable.
+  - id: wcag-vpat
+    conforms: partial
+    evidence: >-
+      Buffer maintains a public VPAT (Voluntary Product Accessibility Template)
+      repository at https://github.com/bufferapp/vpat. Accessibility posture,
+      not an API conformance claim; recorded because it is a real published
+      artifact.
+event_surface:
+  present: false
+  detail: >-
+    Buffer publishes no webhooks, no GraphQL subscriptions and no streaming
+    endpoint. The schema declares only `schema { query, mutation }` — there is
+    no subscription root. The word "webhook" appears nowhere in the docs corpus
+    (all guides, reference, llms.txt and the CLI package were grepped). Event
+    delivery in Buffer's own integration story is handled by third-party
+    automation (Zapier, n8n) polling the API. This is a true N/A, not a gap
+    left unmeasured — no AsyncAPI or Webhooks artifact is emitted.
+compliance_program:
+  published: true
+  url: https://buffer.com/security
+  frameworks: [GDPR, EU-US/UK/Swiss Data Privacy Frameworks, CCPA]
+  certifications: []
+  trust_center: false
+  note: >-
+    Buffer publishes a privacy/data-protection compliance program but no
+    security certifications and no trust center. The Compliance pointer in
+    apis.yml points at the published policies page for that reason; no
+    TrustCenter pointer is emitted.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://auth.buffer.com/.well-known/openid-configuration', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://mcp.buffer.com/.well-known/oauth-protected-resource', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/llms.txt', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://buffer.com/security', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://api.buffer.com/openapi.json', http_status: 401}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/openapi.json', http_status: 404}

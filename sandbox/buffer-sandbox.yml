@@ -1,0 +1,98 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/explorer.html
+docs:
+  - https://developers.buffer.com/explorer.html
+  - https://developers.buffer.com/guides/getting-started.html
+  - https://developers.buffer.com/guides/cli.html
+name: Buffer API Explorer and safe-execution surfaces
+summary: >-
+  Buffer publishes NO sandbox in the payments sense — there is no test mode, no
+  test-vs-live key prefix, no magic test identifiers, no fixture or trigger
+  tooling, and no test clock. What it does publish are three real
+  safe-execution surfaces: a hosted interactive API Explorer, a client-side
+  --dry-run on every CLI mutation, and drafts as a zero-consequence write path.
+  Recorded honestly as those three rather than stretched into a sandbox that
+  does not exist.
+test_mode:
+  separate_environment: false
+  test_key_prefix: null
+  live_key_prefix: null
+  note: >-
+    One environment, one credential. A personal API key created at
+    https://publish.buffer.com/settings/api operates against the real account
+    and real connected social channels. Any post created is a real post.
+surfaces:
+  - name: API Explorer
+    kind: hosted console
+    url: https://developers.buffer.com/explorer.html
+    auth: 'Bring your own API key; the key is shared with the integration setup pages and prefills them.'
+    description: >-
+      Interactive in-browser query runner. Buffer's Quick Start: "You can run
+      this query directly in your browser using the interactive Buffer API
+      Explorer, no local setup required."
+    consequence: >-
+      Executes against the live account. Not a sandbox — reads are safe,
+      mutations are real.
+  - name: CLI dry run
+    kind: client-side validation
+    command: 'buffer <group> <command> --json <payload> --dry-run'
+    description: >-
+      Supported on every mutation. Validates the input locally and prints the
+      payload that would be sent, with no API call. Exits 0 only if the input
+      parses. Buffer's own agent guidance: "Always dry-run a generated payload
+      first; cheap and exits 0 only if input parses."
+    counts_against_rate_limit: false
+    api_call: false
+  - name: Drafts
+    kind: reversible write
+    mechanism: 'CreatePostInput.saveToDraft: true (CLI: --save-to-draft)'
+    description: >-
+      Creates a Post with status draft instead of scheduling it. Posting limits
+      are not checked and the post will not publish until explicitly scheduled.
+      Buffer's own skill text calls this "zero risk" and recommends it for any
+      pipeline that might be re-run, since a duplicate draft is cheap to delete
+      with posts delete.
+    consequence: 'Writes a real record, but never reaches a social network.'
+  - name: Schema describe
+    kind: local contract inspection
+    command: 'buffer schema describe <group> <command> --output json'
+    description: >-
+      Returns the full JSON Schema for a --json payload, including per-service
+      nested metadata, defaultFields and selectableFields. Local only.
+    api_call: false
+  - name: buffer doctor
+    kind: environment check
+    command: buffer doctor
+    description: >-
+      Checks Node version, config, token, default organization, network
+      reachability, rate-limit headroom and CLI freshness.
+test_values:
+  cards: null
+  bank_accounts: null
+  magic_identifiers: null
+  note: >-
+    None published. Buffer's pitfalls guidance is the opposite — "Never guess
+    channel IDs. Always fetch with buffer channels list. IDs look
+    pseudo-random; the API will accept malformed IDs and reject at execute time
+    with vague errors." There is nothing to hardcode.
+time_simulation:
+  test_clock: false
+  note: >-
+    No time simulation. Scheduling is real: dueAt must be a real ISO-8601
+    timestamp with a real offset, and a scheduled post really publishes.
+rate_limit_interaction:
+  dry_run_free: true
+  local_commands_free: [schema, config, doctor, context, '--help', '--version']
+  detail: rate-limits/buffer-rate-limits.yml
+gaps:
+  - >-
+    No sandbox account or test organization. A developer building against
+    Buffer must connect real social channels, or work exclusively in drafts.
+  - >-
+    Drafts are the de facto test path, but they still consume idea/post storage
+    against the organization's plan limits.
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/explorer.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/getting-started.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/cli.html', http_status: 200}

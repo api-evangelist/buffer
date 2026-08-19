@@ -1,0 +1,111 @@
+generated: '2026-08-13'
+method: probed
+source: live probe of every Buffer host in apis.yml plus the MCP and auth hosts
+note: >-
+  Buffer serves no discovery documents from buffer.com, developers.buffer.com
+  or api.buffer.com. It does serve a complete OAuth 2.0 / OpenID Connect
+  discovery surface from auth.buffer.com, and RFC 9728 protected-resource
+  metadata from the MCP host mcp.buffer.com — those are the real hits below.
+  api.buffer.com answers 401 UNAUTHENTICATED to every path including
+  /.well-known/*, because the GraphQL gateway is a catch-all; a 401 there is
+  NOT evidence of a document. publish.buffer.com answers 200 with an HTML
+  single-page-app shell for every /.well-known/* path, which is a soft-200
+  false positive and is recorded as a miss.
+hosts:
+  - host: https://auth.buffer.com
+    role: OAuth 2.0 authorization server / OIDC provider
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: application/json
+        file: buffer-oauth-authorization-server.json
+        spec: RFC 8414
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: application/json
+        file: buffer-openid-configuration.json
+        spec: OpenID Connect Discovery 1.0
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://mcp.buffer.com
+    role: hosted Model Context Protocol server
+    documents:
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        content_type: application/json
+        file: buffer-oauth-protected-resource.json
+        spec: RFC 9728
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: application/json
+        note: >-
+          Mirrors the auth.buffer.com document byte-for-byte; saved once as
+          buffer-oauth-authorization-server.json rather than twice.
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://buffer.com
+    role: marketing site
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://api.buffer.com
+    role: GraphQL API gateway
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+        note: catch-all UNAUTHENTICATED response, not a document
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+        note: catch-all UNAUTHENTICATED response, not a document
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+  - host: https://developers.buffer.com
+    role: developer documentation
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 200
+        content_type: text/plain
+        file: ../llms/buffer-llms.txt
+        note: Not a /.well-known/ path; recorded here because it was probed in the same pass.
+  - host: https://publish.buffer.com
+    role: application
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: miss
+        note: >-
+          Returns the application's HTML shell (<!DOCTYPE html>), not JSON. SPA
+          catch-all soft-200 — rejected, no agent card exists.
+      - path: /.well-known/agent.json
+        status: 200
+        result: miss
+        note: Same HTML shell as above. Rejected.
+security_txt: false
+api_catalog: false
+agent_card: false

@@ -1,0 +1,118 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.buffer.com/guides/api-standards.html
+docs:
+  - https://developers.buffer.com/guides/api-standards.html
+  - https://developers.buffer.com/changelog.html
+  - https://developers.buffer.com/roadmap.html
+versioning:
+  scheme: none
+  current: null
+  policy: additive-only
+  docs: https://developers.buffer.com/guides/api-standards.html
+  detail: >-
+    Buffer runs one evergreen GraphQL endpoint with no version in the path,
+    no version header and no dated release train. The stability contract is
+    "Always Add, Never Modify or Remove": new fields and types are added
+    alongside existing ones, so existing queries keep working.
+maturity_markers:
+  - marker: '🧪 Preview'
+    applies_to: [createPostTemplate, updatePostTemplate, deletePostTemplate, postTemplate, postTemplates]
+    source: https://developers.buffer.com/reference.html
+  - marker: '⚠️ Experimental'
+    applies_to: [movePostInQueue]
+    source: https://developers.buffer.com/reference.html
+  - marker: '@experimental'
+    applies_to: [Post.metrics, aggregatedPostMetrics]
+    source: skills/buffer-post-metrics.md
+    note: '"Schema is @experimental: the shape can change without notice."'
+  - marker: Beta
+    applies_to: ["Query 'Ideas'"]
+    source: https://developers.buffer.com/roadmap.html
+deprecation:
+  policy_url: https://developers.buffer.com/guides/api-standards.html
+  mechanism: GraphQL '@deprecated(reason:)'
+  sunset_header: false
+  rfc8594: false
+  statement: >-
+    "When we plan to retire a field, we mark it with the @deprecated
+    annotation. Deprecated fields include a reason that describes the
+    replacement and when the field will be removed. You'll always have advance
+    notice before a field is removed."
+  notice_channel: the @deprecated reason string plus the dated changelog
+  detail: >-
+    Buffer does NOT emit RFC 8594 Sunset/Deprecation HTTP headers — the whole
+    deprecation contract lives in the schema annotation and the changelog.
+    Removal dates have been extended in practice at least once (see below),
+    which is a caller-friendly signal rather than a violation.
+deprecated_operations: []
+deprecated_fields:
+  - field: PostMetricType.replies
+    removal_date: '2026-12-01'
+    note: Extended from 2026-07-31 in the 2026-06-16 changelog entry.
+  - field: PostMetricType.favorites
+    removal_date: '2026-12-01'
+  - field: PostMetricType.reblogs
+    removal_date: '2026-12-01'
+  - field: PostMetricType.retweets
+    removal_date: '2026-12-01'
+  - field: PostMetricType.repins
+    removal_date: '2026-12-01'
+  - field: PostMetricType.link_clicks
+    removal_date: '2026-12-01'
+  - field: PostMetricType.other
+    removal_date: '2026-12-01'
+  - field: ImageMetadataInput.dimensions
+    deprecated_on: '2026-07-27'
+  - field: ChannelAction.viewUpdates
+    deprecated_on: '2026-06-25'
+    replacement: ChannelAction.viewPublish
+  - field: PostsFiltersInput.tagIds
+    deprecated_on: '2026-02-17'
+    replacement: PostsFiltersInput.tags (TagComparator)
+  - field: GoogleBusinessPostMetadata / GoogleBusinessPostMetadataInput
+    note: >-
+      Carries an inline '@deprecated: pending proposal for specific GBP post
+      types' comment in the schema, without a dated removal.
+retirements:
+  - product: Buffer legacy REST API
+    status: announced
+    retirement_date: '2027-02-01'
+    announced: '2026-07-27'
+    announcement_url: https://buffer.com/resources/legacy-rest-api-retired/
+    statement: >-
+      "We're retiring Buffer's legacy REST API on February 1, 2027. After that
+      date, requests to legacy endpoints will no longer return data."
+    migration_guide: https://developers.buffer.com/guides/rest-migration.html
+    residue_in_current_api: >-
+      The GraphQL schema still carries RestProxyError, which proxies a legacy
+      REST error code and links to https://buffer.com/developers/api/errors —
+      that registry retires with the legacy API.
+  - product: StartPage post metadata
+    status: removed
+    removed_on: '2026-05-26'
+    detail: StartPagePostMetadata / StartPagePostMetadataInput and the union member were removed.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No published SLA or uptime commitment was found on buffer.com,
+    developers.buffer.com or the status page. Recorded as an honest absence.
+status_page: https://status.buffer.com/
+status_page_api: https://status.buffer.com/api/v2/status.json
+status_page_platform: Atlassian Statuspage
+status_page_observed:
+  fetched: '2026-08-13'
+  http_status: 200
+  indicator: none
+  description: All Systems Operational
+changelog: https://developers.buffer.com/changelog.html
+changelog_artifact: changelog/buffer-changelog.yml
+roadmap: https://developers.buffer.com/roadmap.html
+roadmap_columns: [Exploring, Planned, In Progress, Beta, Released]
+support_escalation: developersupport@buffer.com
+x-evidence:
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/guides/api-standards.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/changelog.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://developers.buffer.com/roadmap.html', http_status: 200}
+  - {fetched: '2026-08-13', url: 'https://status.buffer.com/api/v2/status.json', http_status: 200}
