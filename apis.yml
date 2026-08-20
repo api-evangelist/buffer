@@ -28,6 +28,19 @@ created: '2026-06-13'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 tags:
+- Social-Media
+- Scheduling
+- Analytics
+- Publishing
+- Content Management
+- Social Media Management
+- Social Media Marketing
+- Marketing
+- Content Scheduling
+- GraphQL
+- MCP
+- Agents
+tags_raw:
 - Social Media
 - Scheduling
 - Analytics
@@ -50,6 +63,11 @@ apis:
   humanURL: https://developers.buffer.com/
   baseURL: https://api.buffer.com/
   tags:
+  - Social-Media
+  - Scheduling
+  - GraphQL
+  - Publishing
+  tags_raw:
   - Social Media
   - Scheduling
   - GraphQL
