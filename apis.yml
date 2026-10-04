@@ -39,7 +39,7 @@ created: '2026-06-13'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 tags:
-- Social-Media
+- Social Media
 - Scheduling
 - Analytics
 - Publishing
@@ -64,6 +64,7 @@ tags_raw:
 - GraphQL
 - MCP
 - Agents
+- Social-Media
 apis:
 - aid: buffer:buffer-api
   name: Buffer API
@@ -74,7 +75,7 @@ apis:
   humanURL: https://developers.buffer.com/
   baseURL: https://api.buffer.com/
   tags:
-  - Social-Media
+  - Social Media
   - Scheduling
   - GraphQL
   - Publishing
@@ -83,6 +84,7 @@ apis:
   - Scheduling
   - GraphQL
   - Publishing
+  - Social-Media
   properties:
   - type: Documentation
     url: https://developers.buffer.com/
