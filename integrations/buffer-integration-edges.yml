@@ -125,6 +125,23 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-browser-extension-stores.py
   first_seen: '2026-10-21'
+- partner_name: Raycast (raycast-store)
+  partner: raycast
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: raycast-store
+  evidence: https://www.raycast.com/buffer/buffer
+  mirror_of: raycast/integrations/raycast-integration-edges.yml
+  apps:
+  - Buffer
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Raycast Store extension (first-party)
 method: searched
 checked:
 - https://api.nuget.org/v3
@@ -143,5 +160,6 @@ checked:
 - https://addons.mozilla.org/api/v5/addons/addon/<slug>/
 - https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
 - https://chromewebstore.google.com/sitemap
+- raycast/integrations/raycast-integration-edges.yml
 source:
 - https://zapier.com/api/v4/apps/
