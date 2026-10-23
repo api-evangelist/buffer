@@ -142,6 +142,31 @@ edges:
   detected: '2026-10-22'
   detected_by: mirror-platform-listings.py
   category: Raycast Store extension (first-party)
+- partner_name: IFTTT
+  partner: ifttt
+  partner_match: aggregator
+  type: marketplace
+  marketplace: ifttt-services
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://ifttt.com/buffer
+  category: null
+  contract_reference:
+    register: IFTTT service directory (ifttt.com/explore/services; ifttt.com/<service>)
+    spec_file: null
+    role: ipaas-connector:ifttt
+    registered_name: Buffer
+    matched_domain: buffer.com
+    matched_by: domain
+    app_slug: buffer
+    ifttt_category: Social media
+    builder: unknown (the service page does not say who built it)
+    detected_by: sweep-ifttt-services.py
+    detected: '2026-10-23'
+    signal_note: one edge per (provider, platform); triggers, actions and applet counts are context, never read
+  detected_by: sweep-ifttt-services.py
+  first_seen: '2026-10-23'
 method: searched
 checked:
 - https://api.nuget.org/v3
@@ -161,5 +186,8 @@ checked:
 - https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
 - https://chromewebstore.google.com/sitemap
 - raycast/integrations/raycast-integration-edges.yml
+- https://ifttt.com/buffer
+- https://ifttt.com/explore/services
+- https://ifttt.com/sitemap_services.xml
 source:
 - https://zapier.com/api/v4/apps/
