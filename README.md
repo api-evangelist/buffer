@@ -1,4 +1,4 @@
-# Buffer (buffer)
+# Buffer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,60 +64,138 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Buffer is a social media scheduling and analytics platform with a GraphQL API for scheduling posts, managing content queues, accessing engagement metrics, and publishing across multiple social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon, and Google Business Profiles.
+Buffer is a social media scheduling, publishing and analytics platform with a GraphQL API for scheduling posts, managing content queues and ideas, working with post templates, accessing normalized engagement metrics, and publishing across eleven social channels including Instagram, LinkedIn, X, TikTok, Facebook, Threads, Pinterest, Bluesky, YouTube, Mastodon and Google Business Profiles. Access is by personal API key or OAuth 2.0 with PKCE, and Buffer also operates a hosted Model Context Protocol server plus a first-party CLI that ships installable agent skills. The legacy REST API is being retired on February 1, 2027.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/buffer/refs/heads/main/apis.yml)
+**Areas:** Social Media · Scheduling · Analytics · Publishing · Content Management · Social Media Management · Social Media Marketing · Marketing · Content Scheduling · GraphQL · MCP · Agents
 
-## Tags
+## Buffer on APIs.io
 
-- Social Media
-- Scheduling
-- Analytics
-- Publishing
-- Content Management
+Everything profiled for Buffer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/buffer/](https://apis.io/providers/buffer/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+- [Buffer API](https://apis.io/apis/buffer/buffer-api/) — GraphQL API for scheduling and publishing posts, managing social media channels, handling content ideas and idea groups, post templates, and accessing…
 
-## APIs
+### Published properties
 
-### Buffer API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-GraphQL API for scheduling and publishing posts, managing social media channels, handling content ideas, and accessing post metrics across 11 major social media platforms.
+#### GraphQL (2)
 
-- **Human URL:** [https://developers.buffer.com/](https://developers.buffer.com/)
-- **Base URL:** `https://api.buffer.com/`
+GraphQL schemas.
 
-#### Tags
+- [Buffer API Reference](https://apis.io/graphqls/buffer/buffer-api-reference/)
+- [Buffer GraphQL API](https://apis.io/graphqls/buffer/buffer-graphql/)
 
-- Social Media
-- Scheduling
-- GraphQL
-- Publishing
+#### MCP servers (1)
 
-#### Properties
+Model Context Protocol servers that expose the API to agents.
 
-- [Documentation](https://developers.buffer.com/)
-- [Authentication](https://support.buffer.com/article/859-does-buffer-have-an-api)
-- [Graph Q L](graphql/buffer-graphql.md)
+- [buffer](https://apis.io/servers/buffer/buffer/)
 
-## Common Properties
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Buffer Authentication](https://apis.io/security/buffer/buffer-authentication/)
+- [Buffer Domain Security](https://apis.io/security/buffer/buffer-domain-security/)
+- [Buffer Vulnerability Disclosure](https://apis.io/security/buffer/buffer-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Buffer Scopes](https://apis.io/scopes/buffer/buffer-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Buffer Plans Pricing](https://apis.io/plans/buffer/buffer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Buffer Rate Limits](https://apis.io/rate-limits/buffer/buffer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Buffer Finops](https://apis.io/finops/buffer/buffer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://buffer.com)
 - [Documentation](https://developers.buffer.com/)
-- [Git Hub Org](https://github.com/bufferapp)
-- [LinkedIn](https://www.linkedin.com/company/bufferapp)
-- [Blog](https://buffer.com/resources/)
+- [Getting started](https://developers.buffer.com/guides/getting-started.html)
+- [API reference](https://developers.buffer.com/reference.html)
 - [Pricing](https://buffer.com/pricing)
-- [Status Page](https://status.buffer.com/)
-- [X (Twitter)](https://x.com/buffer)
-- [Plans](plans/buffer-plans-pricing.yml)
-- [Rate Limits](rate-limits/buffer-rate-limits.yml)
-- [Fin Ops](finops/buffer-finops.yml)
+- [Sign up](https://buffer.com/signup)
+- [Support](https://support.buffer.com/)
+- [Changelog](https://developers.buffer.com/changelog.html)
+- [Blog](https://buffer.com/resources/)
+- [Security](https://buffer.com/security)
+- [Compliance](https://buffer.com/security)
+- [Terms of service](https://buffer.com/terms)
+- [Privacy policy](https://buffer.com/privacy)
+- [GitHub](https://github.com/bufferapp)
+- [Status](https://status.buffer.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 65.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.4 |
+| Contract governance | 18.2 |
+| Operational transparency | 57.9 |
+| Developer ergonomics | 85.7 |
+| Access clarity | 84.2 |
+
+**Agent readiness 44.1** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/buffer/](https://apis.io/providers/buffer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Buffer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/buffer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
